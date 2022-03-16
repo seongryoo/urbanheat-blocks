@@ -8,7 +8,7 @@ class UrbanHeatATL_Blocks {
     'hero',
   );
   const SCRIPTS = array(
-    'blocks',
+    'index',
   );
   const DEPENDENCIES = array(
     'wp-blocks',
