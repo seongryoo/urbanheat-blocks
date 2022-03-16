@@ -79,7 +79,7 @@ export const HeroBlockArgs = {
           checked={props.attributes.isCallToAction}
           onChange={(value) => props.setAttributes({ isCallToAction: value })}
         />
-        {props.attributes.isCaption ? (
+        {props.attributes.isCallToAction ? (
           <div className="admin-hero__input">
             <TextControl
               value={props.attributes.callToActionText}
