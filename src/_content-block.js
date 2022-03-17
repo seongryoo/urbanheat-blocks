@@ -10,7 +10,7 @@ const {
 
 export const ContentBlock = ({props}) => {
   return (
-    <div className="admin-hero__container__side-content admin-hero__container__side-content--text-side">
+    <>
       <TextareaControl
         label={__("Hero block heading")}
         placeholder={__("Add heading text to be displayed on one side of the hero block")}
@@ -59,6 +59,6 @@ export const ContentBlock = ({props}) => {
           />
         </div>
       ) : null}
-    </div>
+    </>
   )
 };

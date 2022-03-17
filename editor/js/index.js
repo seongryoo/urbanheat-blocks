@@ -30,9 +30,7 @@ const ContentBlock = _ref => {
   let {
     props
   } = _ref;
-  return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
-    className: "admin-hero__container__side-content admin-hero__container__side-content--text-side"
-  }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(TextareaControl, {
+  return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(TextareaControl, {
     label: __("Hero block heading"),
     placeholder: __("Add heading text to be displayed on one side of the hero block"),
     value: props.attributes.headingContent,
@@ -94,7 +92,10 @@ const ContentBlock = _ref => {
 
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "Hero": function() { return /* binding */ Hero; },
 /* harmony export */   "Swap": function() { return /* binding */ Swap; },
+/* harmony export */   "SwitchPicture": function() { return /* binding */ SwitchPicture; },
+/* harmony export */   "SwitchVideo": function() { return /* binding */ SwitchVideo; },
 /* harmony export */   "Upload": function() { return /* binding */ Upload; }
 /* harmony export */ });
 /* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @wordpress/element */ "@wordpress/element");
@@ -126,6 +127,42 @@ const Swap = (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("
 }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("path", {
   d: "M6.99 11L3 15l3.99 4v-3H14v-2H6.99v-3zM21 9l-3.99-4v3H10v2h7.01v3L21 9z"
 }));
+const Hero = (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("svg", {
+  xmlns: "http://www.w3.org/2000/svg",
+  height: "24px",
+  viewBox: "0 0 24 24",
+  width: "24px",
+  fill: "#000000"
+}, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("path", {
+  d: "M0 0h24v24H0z",
+  fill: "none"
+}), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("path", {
+  d: "M22 13h-8v-2h8v2zm0-6h-8v2h8V7zm-8 10h8v-2h-8v2zm-2-8v6c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V9c0-1.1.9-2 2-2h6c1.1 0 2 .9 2 2zm-1.5 6l-2.25-3-1.75 2.26-1.25-1.51L3.5 15h7z"
+}));
+const SwitchVideo = (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("svg", {
+  xmlns: "http://www.w3.org/2000/svg",
+  height: "24px",
+  viewBox: "0 0 24 24",
+  width: "24px",
+  fill: "#000000"
+}, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("path", {
+  d: "M0 0h24v24H0V0z",
+  fill: "none"
+}), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("path", {
+  d: "M4 6H2v14c0 1.1.9 2 2 2h14v-2H4V6zm16-4H8c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm0 14H8V4h12v12zM12 5.5v9l6-4.5z"
+}));
+const SwitchPicture = (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("svg", {
+  xmlns: "http://www.w3.org/2000/svg",
+  height: "24px",
+  viewBox: "0 0 24 24",
+  width: "24px",
+  fill: "#000000"
+}, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("path", {
+  d: "M0 0h24v24H0V0z",
+  fill: "none"
+}), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("path", {
+  d: "M20 4v12H8V4h12m0-2H8c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm-8.5 9.67l1.69 2.26 2.48-3.1L19 15H9zM2 6v14c0 1.1.9 2 2 2h14v-2H4V6H2z"
+}));
 
 /***/ }),
 
@@ -138,89 +175,6 @@ const Swap = (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "HeroBlockArgs": function() { return /* binding */ HeroBlockArgs; }
-/* harmony export */ });
-/* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @wordpress/element */ "@wordpress/element");
-/* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _content_block_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./_content-block.js */ "./src/_content-block.js");
-/* harmony import */ var _icons_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./_icons.js */ "./src/_icons.js");
-
-
-
-const {
-  __
-} = wp.i18n;
-const {
-  Button,
-  Icon
-} = wp.components;
-const {
-  MediaUpload,
-  MediaUploadCheck
-} = wp.blockEditor;
-const HeroBlockArgs = {
-  edit: props => {
-    const imageSide = (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
-      className: "admin-hero__container__side-content admin-hero__container__side-content--image-side"
-    }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(MediaUploadCheck, null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(MediaUpload, {
-      onSelect: media => {
-        props.setAttributes({
-          sideImageId: media.id,
-          sideImageUrl: media.url,
-          sideImageAlt: media.alt
-        });
-      },
-      value: props.attributes.sideImageId,
-      render: _ref => {
-        let {
-          open
-        } = _ref;
-        return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(Button, {
-          onClick: open
-        }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(Icon, {
-          icon: _icons_js__WEBPACK_IMPORTED_MODULE_2__.Upload,
-          className: "admin-button__icon"
-        }), __("Upload image for hero block"));
-      }
-    })), props.sideImageId != 0 ? (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("img", {
-      src: props.attributes.sideImageUrl,
-      alt: props.attributes.sideImageAlt
-    }) : null);
-    const textSide = (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_content_block_js__WEBPACK_IMPORTED_MODULE_1__.ContentBlock, {
-      props: props
-    });
-    return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
-      className: "admin-hero"
-    }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
-      className: "admin-hero__container"
-    }, props.attributes.isImageLeft ? [imageSide, textSide] : [textSide, imageSide]), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(Button, {
-      onClick: () => props.setAttributes({
-        isImageLeft: !props.attributes.isImageLeft
-      }),
-      className: "admin-button admin-hero__swap-sides"
-    }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(Icon, {
-      icon: _icons_js__WEBPACK_IMPORTED_MODULE_2__.Swap,
-      className: "admin-button__icon"
-    }), __(props.attributes.isImageLeft ? "Image on the left. Click to swap sides." : "Image on the right. Click to swap sides.")));
-  },
-  save: props => {
-    return null;
-  },
-  title: "Hero Block",
-  category: "design",
-  icon: "superhero-alt"
-};
-
-/***/ }),
-
-/***/ "./src/video.js":
-/*!**********************!*\
-  !*** ./src/video.js ***!
-  \**********************/
-/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
-
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "VideoBlockArgs": function() { return /* binding */ VideoBlockArgs; }
 /* harmony export */ });
 /* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @wordpress/element */ "@wordpress/element");
 /* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__);
@@ -239,39 +193,68 @@ const {
 const {
   InnerBlocks
 } = wp.blockEditor;
-const VideoBlockArgs = {
+const HeroBlockArgs = {
   edit: props => {
-    const videoSide = (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
-      className: "admin-flex__half"
-    }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(InnerBlocks, {
+    const graphicSide = (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+      className: "admin-hero__container__side-content admin-hero__container__side-content--graphic-side"
+    }, props.attributes.isVideo ? (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(InnerBlocks, {
       template: [["core/embed", {
         providerNameSlug: "youtube"
       }]],
       templateLock: "all"
-    }));
+    }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(Button, {
+      onClick: () => props.setAttributes({
+        isVideo: !props.attributes.isVideo
+      }),
+      className: "admin-button admin-hero__change-graphic"
+    }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(Icon, {
+      icon: _icons_js__WEBPACK_IMPORTED_MODULE_2__.SwitchPicture,
+      className: "admin-button__icon"
+    }), "Attach an image instead")) : (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(InnerBlocks, {
+      template: [["core/image"]],
+      templateLock: "all"
+    }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(Button, {
+      onClick: () => props.setAttributes({
+        isVideo: !props.attributes.isVideo
+      }),
+      className: "admin-button admin-hero__change-graphic"
+    }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(Icon, {
+      icon: _icons_js__WEBPACK_IMPORTED_MODULE_2__.SwitchVideo,
+      className: "admin-button__icon"
+    }), "Embed a video instead")));
     const textSide = (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
-      className: "admin-flex__half"
+      className: "admin-hero__container__side-content admin-hero__container__side-content--text-side"
     }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_content_block__WEBPACK_IMPORTED_MODULE_1__.ContentBlock, {
       props: props
     }));
-    return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
-      className: "admin-flex"
-    }, props.attributes.isVideoLeft ? [videoSide, textSide] : [textSide, videoSide]), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(Button, {
+    let swapButtonText;
+
+    if (props.attributes.isVideo) {
+      swapButtonText = props.attributes.isGraphicLeft ? "Video on the left. Click to swap sides." : "Video on the right. Click to swap sides.";
+    } else {
+      swapButtonText = props.attributes.isGraphicLeft ? "Image on the left. Click to swap sides." : "Image on the right. Click to swap sides.";
+    }
+
+    return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+      className: "admin-hero"
+    }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+      className: "admin-hero__container"
+    }, props.attributes.isGraphicLeft ? [graphicSide, textSide] : [textSide, graphicSide]), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(Button, {
       onClick: () => props.setAttributes({
-        isVideoLeft: !props.attributes.isVideoLeft
+        isGraphicLeft: !props.attributes.isGraphicLeft
       }),
       className: "admin-button admin-hero__swap-sides"
     }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(Icon, {
       icon: _icons_js__WEBPACK_IMPORTED_MODULE_2__.Swap,
       className: "admin-button__icon"
-    }), __(props.attributes.isVideoLeft ? "Video on the left. Click to swap sides." : "Video on the right. Click to swap sides.")));
+    }), __(swapButtonText)));
   },
   save: props => {
     return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(InnerBlocks.Content, null);
   },
-  title: "Video Block",
+  title: "Hero Block",
   category: "design",
-  icon: "youtube"
+  icon: _icons_js__WEBPACK_IMPORTED_MODULE_2__.Hero
 };
 
 /***/ }),
@@ -362,14 +345,11 @@ var __webpack_exports__ = {};
   \**********************/
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _hero__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./hero */ "./src/hero.js");
-/* harmony import */ var _video__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./video */ "./src/video.js");
-
 
 const {
   registerBlockType
 } = wp.blocks;
 registerBlockType("urbanheat/hero-block", _hero__WEBPACK_IMPORTED_MODULE_0__.HeroBlockArgs);
-registerBlockType("urbanheat/video-block", _video__WEBPACK_IMPORTED_MODULE_1__.VideoBlockArgs);
 }();
 /******/ })()
 ;

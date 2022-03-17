@@ -1,7 +1,6 @@
 <?php
 
-include( plugin_dir_path( __FILE__ ) . 'block-rendering/hero.php' );
-include( plugin_dir_path( __FILE__ ) . 'block-rendering/video.php' );
+include( plugin_dir_path( __FILE__ ) . 'block-rendering/hero-block.php' );
 
 class UrbanHeatATL_Blocks {
   const STYLES = array(

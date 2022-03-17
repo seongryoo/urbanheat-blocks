@@ -1,14 +1,18 @@
 <?php
 
-class VideoBlock {
-  const BLOCK_NAME = 'urbanheat/video-block';
+class HeroBlock {
+  const BLOCK_NAME = 'urbanheat/hero-block';
   const ATTRIBUTES = array(
     'headingContent' => array(
       'type' => 'string'
     ),
-    'isVideoLeft' => array(
+    'isGraphicLeft' => array(
       'type' => 'boolean',
       'default' => TRUE,
+    ),
+    'isVideo' => array(
+      'type' => 'boolean',
+      'default' => FALSE,
     ),
     'isCaption' => array(
       'type' => 'boolean',
@@ -36,8 +40,9 @@ class VideoBlock {
     $call_to_action_url     = $attributes[ 'callToActionUrl' ];
     $is_caption             = $attributes[ 'isCaption' ];
     $is_call_to_action      = $attributes[ 'isCallToAction' ];
-    $is_video_left          = $attributes[ 'isVideoLeft' ];
-    $video_iframe           = $content;
+    $is_video               = $attributes[ 'isVideo' ];
+    $is_graphic_left        = $attributes[ 'isGraphicLeft' ];
+    $graphic_iframe         = $content;
 
     $text_content = '<div class="hero__content__text">';
       $text_content .= '<div class="hero__content__text__header">' . $heading_content . '</div>';
@@ -52,15 +57,19 @@ class VideoBlock {
         }
       }
     $text_content .= '</div>';
-    $video_content = $video_iframe;
+    if ( $is_video ) {
+      $graphic = '<div class="hero__content__video">' . $graphic_iframe . '</div>';
+    } else {
+      $graphic = '<div class="hero__content__image">' . $graphic_iframe . '</div>';
+    }
 
     // Image/text direction setting
-    if ( $is_video_left  ) {
-      $left_content = $video_content;
+    if ( $is_graphic_left ) {
+      $left_content = $graphic;
       $right_content = $text_content;
     } else {
       $left_content = $text_content;
-      $right_content = $video_content;
+      $right_content = $graphic;
     }
 
     return "<div class=\"hero\">
@@ -90,4 +99,4 @@ class VideoBlock {
   }
 }
 
-$video_block = new VideoBlock();
+$hero_block = new HeroBlock();
