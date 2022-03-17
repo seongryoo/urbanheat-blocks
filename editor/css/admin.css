@@ -5,3 +5,11 @@
 .admin-button__icon {
   margin-right: 0.5rem;
 }
+
+.admin-flex {
+  display: flex;
+  align-items: stretch;
+}
+.admin-flex__half {
+  width: 50%;
+}

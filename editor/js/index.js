@@ -2,10 +2,94 @@
 /******/ 	"use strict";
 /******/ 	var __webpack_modules__ = ({
 
-/***/ "./src/__icons.js":
-/*!************************!*\
-  !*** ./src/__icons.js ***!
-  \************************/
+/***/ "./src/_content-block.js":
+/*!*******************************!*\
+  !*** ./src/_content-block.js ***!
+  \*******************************/
+/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "ContentBlock": function() { return /* binding */ ContentBlock; }
+/* harmony export */ });
+/* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @wordpress/element */ "@wordpress/element");
+/* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__);
+
+const {
+  __
+} = wp.i18n;
+const {
+  TextareaControl,
+  TextControl,
+  CheckboxControl
+} = wp.components;
+const {
+  RichText
+} = wp.blockEditor;
+const ContentBlock = _ref => {
+  let {
+    props
+  } = _ref;
+  return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+    className: "admin-hero__container__side-content admin-hero__container__side-content--text-side"
+  }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(TextareaControl, {
+    label: __("Hero block heading"),
+    placeholder: __("Add heading text to be displayed on one side of the hero block"),
+    value: props.attributes.headingContent,
+    onChange: value => props.setAttributes({
+      headingContent: value
+    }),
+    className: "admin-hero__input"
+  }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(CheckboxControl, {
+    label: "Display a caption below the heading",
+    checked: props.attributes.isCaption,
+    onChange: value => props.setAttributes({
+      isCaption: value
+    })
+  }), props.attributes.isCaption ? (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+    className: "admin-hero__input"
+  }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("label", {
+    htmlFor: "caption-content"
+  }, __("Caption content to be displayed below heading")), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(RichText, {
+    value: props.attributes.captionContent,
+    onChange: value => props.setAttributes({
+      captionContent: value
+    }),
+    id: "caption-content",
+    className: "admin-hero__container__side-content__rich-input admin-hero__input"
+  })) : null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(CheckboxControl, {
+    label: "Display a call-to-action button",
+    checked: props.attributes.isCallToAction,
+    onChange: value => props.setAttributes({
+      isCallToAction: value
+    })
+  }), props.attributes.isCallToAction ? (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+    className: "admin-hero__input"
+  }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(TextControl, {
+    value: props.attributes.callToActionText,
+    onChange: value => props.setAttributes({
+      callToActionText: value
+    }),
+    label: "Text to display on call-to-action button",
+    className: "admin-hero__input"
+  }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(TextControl, {
+    value: props.attributes.callToActionUrl,
+    onChange: value => props.setAttributes({
+      callToActionUrl: value
+    }),
+    label: "Call-to-action URL",
+    help: "Type something like '/about' or '/data' in order to link to an internal page",
+    type: "url",
+    className: "admin-hero__input"
+  })) : null);
+};
+
+/***/ }),
+
+/***/ "./src/_icons.js":
+/*!***********************!*\
+  !*** ./src/_icons.js ***!
+  \***********************/
 /***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
 __webpack_require__.r(__webpack_exports__);
@@ -57,23 +141,21 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @wordpress/element */ "@wordpress/element");
 /* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _icons_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./__icons.js */ "./src/__icons.js");
+/* harmony import */ var _content_block_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./_content-block.js */ "./src/_content-block.js");
+/* harmony import */ var _icons_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./_icons.js */ "./src/_icons.js");
+
 
 
 const {
   __
 } = wp.i18n;
 const {
-  TextareaControl,
   Button,
-  Icon,
-  TextControl,
-  CheckboxControl
+  Icon
 } = wp.components;
 const {
   MediaUpload,
-  MediaUploadCheck,
-  RichText
+  MediaUploadCheck
 } = wp.blockEditor;
 const HeroBlockArgs = {
   edit: props => {
@@ -95,7 +177,7 @@ const HeroBlockArgs = {
         return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(Button, {
           onClick: open
         }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(Icon, {
-          icon: _icons_js__WEBPACK_IMPORTED_MODULE_1__.Upload,
+          icon: _icons_js__WEBPACK_IMPORTED_MODULE_2__.Upload,
           className: "admin-button__icon"
         }), __("Upload image for hero block"));
       }
@@ -103,58 +185,9 @@ const HeroBlockArgs = {
       src: props.attributes.sideImageUrl,
       alt: props.attributes.sideImageAlt
     }) : null);
-    const textSide = (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
-      className: "admin-hero__container__side-content admin-hero__container__side-content--text-side"
-    }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(TextareaControl, {
-      label: __("Hero block heading"),
-      placeholder: __("Add heading text to be displayed on one side of the hero block"),
-      value: props.attributes.headingContent,
-      onChange: value => props.setAttributes({
-        headingContent: value
-      }),
-      className: "admin-hero__input"
-    }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(CheckboxControl, {
-      label: "Display a caption below the heading",
-      checked: props.attributes.isCaption,
-      onChange: value => props.setAttributes({
-        isCaption: value
-      })
-    }), props.attributes.isCaption ? (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
-      className: "admin-hero__input"
-    }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("label", {
-      htmlFor: "caption-content"
-    }, __("Caption content to be displayed below heading")), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(RichText, {
-      value: props.attributes.captionContent,
-      onChange: value => props.setAttributes({
-        captionContent: value
-      }),
-      id: "caption-content",
-      className: "admin-hero__container__side-content__rich-input admin-hero__input"
-    })) : null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(CheckboxControl, {
-      label: "Display a call-to-action button",
-      checked: props.attributes.isCallToAction,
-      onChange: value => props.setAttributes({
-        isCallToAction: value
-      })
-    }), props.attributes.isCallToAction ? (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
-      className: "admin-hero__input"
-    }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(TextControl, {
-      value: props.attributes.callToActionText,
-      onChange: value => props.setAttributes({
-        callToActionText: value
-      }),
-      label: "Text to display on call-to-action button",
-      className: "admin-hero__input"
-    }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(TextControl, {
-      value: props.attributes.callToActionUrl,
-      onChange: value => props.setAttributes({
-        callToActionUrl: value
-      }),
-      label: "Call-to-action URL",
-      help: "Type something like '/about' or '/data' in order to link to an internal page",
-      type: "url",
-      className: "admin-hero__input"
-    })) : null);
+    const textSide = (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_content_block_js__WEBPACK_IMPORTED_MODULE_1__.ContentBlock, {
+      props: props
+    });
     return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
       className: "admin-hero"
     }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
@@ -165,7 +198,7 @@ const HeroBlockArgs = {
       }),
       className: "admin-button admin-hero__swap-sides"
     }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(Icon, {
-      icon: _icons_js__WEBPACK_IMPORTED_MODULE_1__.Swap,
+      icon: _icons_js__WEBPACK_IMPORTED_MODULE_2__.Swap,
       className: "admin-button__icon"
     }), __(props.attributes.isImageLeft ? "Image on the left. Click to swap sides." : "Image on the right. Click to swap sides.")));
   },
@@ -191,21 +224,50 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @wordpress/element */ "@wordpress/element");
 /* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _content_block__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./_content-block */ "./src/_content-block.js");
+/* harmony import */ var _icons_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./_icons.js */ "./src/_icons.js");
 
+
+
+const {
+  __
+} = wp.i18n;
+const {
+  Button,
+  Icon
+} = wp.components;
 const {
   InnerBlocks
 } = wp.blockEditor;
 const VideoBlockArgs = {
   edit: props => {
-    return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(InnerBlocks, {
+    const videoSide = (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+      className: "admin-flex__half"
+    }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(InnerBlocks, {
       template: [["core/embed", {
         providerNameSlug: "youtube"
       }]],
       templateLock: "all"
     }));
+    const textSide = (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+      className: "admin-flex__half"
+    }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_content_block__WEBPACK_IMPORTED_MODULE_1__.ContentBlock, {
+      props: props
+    }));
+    return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+      className: "admin-flex"
+    }, props.attributes.isVideoLeft ? [videoSide, textSide] : [textSide, videoSide]), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(Button, {
+      onClick: () => props.setAttributes({
+        isVideoLeft: !props.attributes.isVideoLeft
+      }),
+      className: "admin-button admin-hero__swap-sides"
+    }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(Icon, {
+      icon: _icons_js__WEBPACK_IMPORTED_MODULE_2__.Swap,
+      className: "admin-button__icon"
+    }), __(props.attributes.isVideoLeft ? "Image on the left. Click to swap sides." : "Image on the right. Click to swap sides.")));
   },
   save: props => {
-    return null;
+    return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(InnerBlocks.Content, null);
   },
   title: "Video Block",
   category: "design",
