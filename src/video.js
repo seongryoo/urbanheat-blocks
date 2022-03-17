@@ -43,7 +43,7 @@ export const VideoBlockArgs = {
             icon={Swap}
             className="admin-button__icon"
           />
-          {__(props.attributes.isVideoLeft ? "Image on the left. Click to swap sides." : "Image on the right. Click to swap sides.")}
+          {__(props.attributes.isVideoLeft ? "Video on the left. Click to swap sides." : "Video on the right. Click to swap sides.")}
         </Button>
       </>
     );

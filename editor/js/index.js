@@ -264,7 +264,7 @@ const VideoBlockArgs = {
     }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(Icon, {
       icon: _icons_js__WEBPACK_IMPORTED_MODULE_2__.Swap,
       className: "admin-button__icon"
-    }), __(props.attributes.isVideoLeft ? "Image on the left. Click to swap sides." : "Image on the right. Click to swap sides.")));
+    }), __(props.attributes.isVideoLeft ? "Video on the left. Click to swap sides." : "Video on the right. Click to swap sides.")));
   },
   save: props => {
     return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(InnerBlocks.Content, null);

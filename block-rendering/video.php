@@ -39,9 +39,38 @@ class VideoBlock {
     $is_video_left          = $attributes[ 'isVideoLeft' ];
     $video_iframe           = $content;
 
-    var_dump( $content );
-    var_dump( $attributes );
-    return null;
+    $text_content = '<div class="hero__content__text">';
+      $text_content .= '<div class="hero__content__text__header">' . $heading_content . '</div>';
+      if ( $is_caption ) {
+        $text_content .= '<div class="hero__content__text__caption">' . $caption_content . '</div>';
+      }
+      if ( $is_call_to_action ) {
+        if ( $is_caption ) {
+          $text_content .= "<a class=\"button button--gradient hero__content__text__button\" href=\"{$call_to_action_url}\">{$call_to_action_text}</a>";  
+        } else {
+          $text_content .= "<a class=\"button button--gradient hero__content__text__button hero__content__text__button--no-caption\" href=\"{$call_to_action_url}\">{$call_to_action_text}</a>";  
+        }
+      }
+    $text_content .= '</div>';
+    $video_content = $video_iframe;
+
+    // Image/text direction setting
+    if ( $is_video_left  ) {
+      $left_content = $video_content;
+      $right_content = $text_content;
+    } else {
+      $left_content = $text_content;
+      $right_content = $video_content;
+    }
+
+    return "<div class=\"hero\">
+              <div class=\"hero__content hero__content--left\">
+                {$left_content}
+              </div>
+              <div class=\"hero__content hero__content--right\">
+                {$right_content}
+              </div>
+            </div>";
   }
   function actions__init() {
     add_action( 'init', function() {
