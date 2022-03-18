@@ -24,8 +24,8 @@ export const ContentBlock = ({props}) => {
         onChange={(value) => props.setAttributes({ isCaption: value })}
       />
       {props.attributes.isCaption ? (
-        <div className="admin-hero__input">
-          <label htmlFor="caption-content">
+        <div className="admin-hero__input admin-hero__option-group">
+          <label htmlFor="caption-content" className="components-base-control__label">
             {__("Caption content to be displayed below heading")}
           </label>
           <RichText
@@ -42,7 +42,7 @@ export const ContentBlock = ({props}) => {
         onChange={(value) => props.setAttributes({ isCallToAction: value })}
       />
       {props.attributes.isCallToAction ? (
-        <div className="admin-hero__input">
+        <div className="admin-hero__input admin-hero__option-group">
           <TextControl
             value={props.attributes.callToActionText}
             onChange={(value) => props.setAttributes({ callToActionText: value })}

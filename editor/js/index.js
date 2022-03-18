@@ -45,9 +45,10 @@ const ContentBlock = _ref => {
       isCaption: value
     })
   }), props.attributes.isCaption ? (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
-    className: "admin-hero__input"
+    className: "admin-hero__input admin-hero__option-group"
   }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("label", {
-    htmlFor: "caption-content"
+    htmlFor: "caption-content",
+    className: "components-base-control__label"
   }, __("Caption content to be displayed below heading")), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(RichText, {
     value: props.attributes.captionContent,
     onChange: value => props.setAttributes({
@@ -62,7 +63,7 @@ const ContentBlock = _ref => {
       isCallToAction: value
     })
   }), props.attributes.isCallToAction ? (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
-    className: "admin-hero__input"
+    className: "admin-hero__input admin-hero__option-group"
   }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(TextControl, {
     value: props.attributes.callToActionText,
     onChange: value => props.setAttributes({
@@ -237,7 +238,9 @@ const HeroBlockArgs = {
 
     return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
       className: "admin-hero"
-    }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+    }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("span", {
+      className: "admin__block-label"
+    }, "Hero block"), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
       className: "admin-hero__container"
     }, props.attributes.isGraphicLeft ? [graphicSide, textSide] : [textSide, graphicSide]), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(Button, {
       onClick: () => props.setAttributes({

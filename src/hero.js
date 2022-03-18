@@ -75,6 +75,9 @@ export const HeroBlockArgs = {
     }
     return (
       <div className="admin-hero">
+        <span className="admin__block-label">
+          Hero block
+        </span>
         <div className="admin-hero__container">
           {props.attributes.isGraphicLeft ? [graphicSide, textSide] : [textSide, graphicSide]}
         </div>

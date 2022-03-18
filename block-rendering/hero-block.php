@@ -45,7 +45,7 @@ class HeroBlock {
     $graphic_iframe         = $content;
 
     $text_content = '<div class="hero__content__text">';
-      $text_content .= '<div class="hero__content__text__header">' . $heading_content . '</div>';
+      $text_content .= '<div class="hero__content__text__heading">' . $heading_content . '</div>';
       if ( $is_caption ) {
         $text_content .= '<div class="hero__content__text__caption">' . $caption_content . '</div>';
       }
