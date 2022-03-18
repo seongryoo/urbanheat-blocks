@@ -14,7 +14,7 @@ const {
 export const HeroBlockArgs = {
   edit: (props) => {
     const graphicSide = (
-      <div className="admin-hero__container__side-content admin-hero__container__side-content--graphic-side">
+      <div className="uha-admin__container__side-content uha-admin__container__side-content--graphic-side">
         {props.attributes.isVideo ? (
           <>
             <InnerBlocks
@@ -25,11 +25,11 @@ export const HeroBlockArgs = {
             />
             <Button
               onClick={() => props.setAttributes({ isVideo: !props.attributes.isVideo })}
-              className="admin-button admin-hero__change-graphic"
+              className="uha-admin-button uha-admin__change-graphic"
             >
               <Icon
                 icon={SwitchPicture}
-                className="admin-button__icon"
+                className="uha-admin-button__icon"
               />
               Attach an image instead
             </Button>
@@ -44,11 +44,11 @@ export const HeroBlockArgs = {
             />
             <Button
               onClick={() => props.setAttributes({ isVideo: !props.attributes.isVideo })}
-              className="admin-button admin-hero__change-graphic"
+              className="uha-admin-button uha-admin__change-graphic"
             >
               <Icon
                 icon={SwitchVideo}
-                className="admin-button__icon"
+                className="uha-admin-button__icon"
               />
               Embed a video instead
             </Button>
@@ -57,7 +57,7 @@ export const HeroBlockArgs = {
       </div>
     );
     const textSide = (
-      <div className="admin-hero__container__side-content admin-hero__container__side-content--text-side">
+      <div className="uha-admin__container__side-content uha-admin__container__side-content--text-side">
         <ContentBlock
           props={props}
         />
@@ -74,20 +74,20 @@ export const HeroBlockArgs = {
         "Image on the right. Click to swap sides.";
     }
     return (
-      <div className="admin-hero">
-        <span className="admin__block-label">
+      <div className="uha-admin">
+        <span className="uha-admin__block-label">
           Hero block
         </span>
-        <div className="admin-hero__container">
+        <div className="uha-admin__container">
           {props.attributes.isGraphicLeft ? [graphicSide, textSide] : [textSide, graphicSide]}
         </div>
         <Button
           onClick={() => props.setAttributes({ isGraphicLeft: !props.attributes.isGraphicLeft })}
-          className="admin-button admin-hero__swap-sides"
+          className="uha-admin-button uha-admin__swap-sides"
         >
           <Icon
             icon={Swap}
-            className="admin-button__icon"
+            className="uha-admin-button__icon"
           />
           {__(swapButtonText)}
         </Button>

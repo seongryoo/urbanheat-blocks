@@ -37,7 +37,7 @@ const ContentBlock = _ref => {
     onChange: value => props.setAttributes({
       headingContent: value
     }),
-    className: "admin-hero__input"
+    className: "uha-admin__input"
   }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(CheckboxControl, {
     label: "Display a caption below the heading",
     checked: props.attributes.isCaption,
@@ -45,7 +45,7 @@ const ContentBlock = _ref => {
       isCaption: value
     })
   }), props.attributes.isCaption ? (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
-    className: "admin-hero__input admin-hero__option-group"
+    className: "uha-admin__input uha-admin__option-group"
   }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("label", {
     htmlFor: "caption-content",
     className: "components-base-control__label"
@@ -55,7 +55,7 @@ const ContentBlock = _ref => {
       captionContent: value
     }),
     id: "caption-content",
-    className: "admin-hero__container__side-content__rich-input admin-hero__input"
+    className: "uha-admin__container__side-content__rich-input uha-admin__input"
   })) : null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(CheckboxControl, {
     label: "Display a call-to-action button",
     checked: props.attributes.isCallToAction,
@@ -63,14 +63,14 @@ const ContentBlock = _ref => {
       isCallToAction: value
     })
   }), props.attributes.isCallToAction ? (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
-    className: "admin-hero__input admin-hero__option-group"
+    className: "uha-admin__input uha-admin__option-group"
   }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(TextControl, {
     value: props.attributes.callToActionText,
     onChange: value => props.setAttributes({
       callToActionText: value
     }),
     label: "Text to display on call-to-action button",
-    className: "admin-hero__input"
+    className: "uha-admin__input"
   }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(TextControl, {
     value: props.attributes.callToActionUrl,
     onChange: value => props.setAttributes({
@@ -79,7 +79,7 @@ const ContentBlock = _ref => {
     label: "Call-to-action URL",
     help: "Type something like '/about' or '/data' in order to link to an internal page",
     type: "url",
-    className: "admin-hero__input"
+    className: "uha-admin__input"
   })) : null);
 };
 
@@ -167,6 +167,118 @@ const SwitchPicture = (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createE
 
 /***/ }),
 
+/***/ "./src/ext-news.js":
+/*!*************************!*\
+  !*** ./src/ext-news.js ***!
+  \*************************/
+/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "ExternalNewsDataBlockArgs": function() { return /* binding */ ExternalNewsDataBlockArgs; }
+/* harmony export */ });
+/* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @wordpress/element */ "@wordpress/element");
+/* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _icons__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./_icons */ "./src/_icons.js");
+
+
+const {
+  MediaUpload,
+  MediaUploadCheck
+} = wp.blockEditor;
+const {
+  Icon,
+  Button,
+  TextControl
+} = wp.components;
+const ExternalNewsDataBlockArgs = {
+  title: 'External news data',
+  icon: 'id-alt',
+  attributes: {
+    img: {
+      type: 'number',
+      source: 'meta',
+      meta: 'ext_news__img'
+    },
+    img_url: {
+      type: 'string',
+      source: 'meta',
+      meta: 'ext_news__img_url'
+    },
+    img_alt: {
+      type: 'string',
+      source: 'meta',
+      meta: 'ext_news__img_alt'
+    },
+    source: {
+      type: 'string',
+      source: 'meta',
+      meta: 'ext_news__source'
+    },
+    link: {
+      type: 'string',
+      source: 'meta',
+      meta: 'ext_news__link'
+    },
+    date: {
+      type: 'string',
+      source: 'meta',
+      meta: 'ext_news__date'
+    }
+  },
+  edit: props => {
+    return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+      className: "uha-admin uha-admin--padded"
+    }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(TextControl, {
+      onChange: value => props.setAttributes({
+        date: value
+      }),
+      label: "Date of publication",
+      help: "Hint: You can use a format like Aug 2, 2021",
+      value: props.attributes.date,
+      placeholder: "e.g., Aug 2, 2021"
+    }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(TextControl, {
+      onChange: value => props.setAttributes({
+        source: value
+      }),
+      label: "News source",
+      value: props.attributes.source,
+      placeholder: "e.g., The Daily Bugle"
+    }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(TextControl, {
+      onChange: value => props.setAttributes({
+        link: value
+      }),
+      label: "Link to external article:",
+      value: props.attributes.link
+    }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(MediaUploadCheck, null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(MediaUpload, {
+      onSelect: media => props.setAttributes({
+        img: media.id,
+        img_url: media.url,
+        img_alt: media.alt
+      }),
+      value: props.attributes.img,
+      render: _ref => {
+        let {
+          open
+        } = _ref;
+        return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(Button, {
+          onClick: open,
+          className: "uha-admin-button"
+        }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(Icon, {
+          icon: _icons__WEBPACK_IMPORTED_MODULE_1__.Upload,
+          className: "uha-admin-button__icon"
+        }), "Attach article thumbnail image");
+      }
+    })), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("img", {
+      src: props.attributes.img_url,
+      alt: props.attributes.img_alt
+    }));
+  },
+  save: props => null
+};
+
+/***/ }),
+
 /***/ "./src/hero.js":
 /*!*********************!*\
   !*** ./src/hero.js ***!
@@ -197,7 +309,7 @@ const {
 const HeroBlockArgs = {
   edit: props => {
     const graphicSide = (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
-      className: "admin-hero__container__side-content admin-hero__container__side-content--graphic-side"
+      className: "uha-admin__container__side-content uha-admin__container__side-content--graphic-side"
     }, props.attributes.isVideo ? (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(InnerBlocks, {
       template: [["core/embed", {
         providerNameSlug: "youtube"
@@ -207,10 +319,10 @@ const HeroBlockArgs = {
       onClick: () => props.setAttributes({
         isVideo: !props.attributes.isVideo
       }),
-      className: "admin-button admin-hero__change-graphic"
+      className: "uha-admin-button uha-admin__change-graphic"
     }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(Icon, {
       icon: _icons_js__WEBPACK_IMPORTED_MODULE_2__.SwitchPicture,
-      className: "admin-button__icon"
+      className: "uha-admin-button__icon"
     }), "Attach an image instead")) : (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(InnerBlocks, {
       template: [["core/image"]],
       templateLock: "all"
@@ -218,13 +330,13 @@ const HeroBlockArgs = {
       onClick: () => props.setAttributes({
         isVideo: !props.attributes.isVideo
       }),
-      className: "admin-button admin-hero__change-graphic"
+      className: "uha-admin-button uha-admin__change-graphic"
     }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(Icon, {
       icon: _icons_js__WEBPACK_IMPORTED_MODULE_2__.SwitchVideo,
-      className: "admin-button__icon"
+      className: "uha-admin-button__icon"
     }), "Embed a video instead")));
     const textSide = (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
-      className: "admin-hero__container__side-content admin-hero__container__side-content--text-side"
+      className: "uha-admin__container__side-content uha-admin__container__side-content--text-side"
     }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_content_block__WEBPACK_IMPORTED_MODULE_1__.ContentBlock, {
       props: props
     }));
@@ -237,19 +349,19 @@ const HeroBlockArgs = {
     }
 
     return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
-      className: "admin-hero"
+      className: "uha-admin"
     }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("span", {
-      className: "admin__block-label"
+      className: "uha-admin__block-label"
     }, "Hero block"), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
-      className: "admin-hero__container"
+      className: "uha-admin__container"
     }, props.attributes.isGraphicLeft ? [graphicSide, textSide] : [textSide, graphicSide]), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(Button, {
       onClick: () => props.setAttributes({
         isGraphicLeft: !props.attributes.isGraphicLeft
       }),
-      className: "admin-button admin-hero__swap-sides"
+      className: "uha-admin-button uha-admin__swap-sides"
     }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(Icon, {
       icon: _icons_js__WEBPACK_IMPORTED_MODULE_2__.Swap,
-      className: "admin-button__icon"
+      className: "uha-admin-button__icon"
     }), __(swapButtonText)));
   },
   save: props => {
@@ -347,12 +459,15 @@ var __webpack_exports__ = {};
   !*** ./src/index.js ***!
   \**********************/
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _hero__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./hero */ "./src/hero.js");
+/* harmony import */ var _ext_news__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./ext-news */ "./src/ext-news.js");
+/* harmony import */ var _hero__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./hero */ "./src/hero.js");
+
 
 const {
   registerBlockType
 } = wp.blocks;
-registerBlockType("urbanheat/hero-block", _hero__WEBPACK_IMPORTED_MODULE_0__.HeroBlockArgs);
+registerBlockType("urbanheat/hero-block", _hero__WEBPACK_IMPORTED_MODULE_1__.HeroBlockArgs);
+registerBlockType("urbanheat/ext-news-data", _ext_news__WEBPACK_IMPORTED_MODULE_0__.ExternalNewsDataBlockArgs);
 }();
 /******/ })()
 ;

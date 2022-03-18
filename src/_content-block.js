@@ -16,7 +16,7 @@ export const ContentBlock = ({props}) => {
         placeholder={__("Add heading text to be displayed on one side of the hero block")}
         value={props.attributes.headingContent}
         onChange={(value) => props.setAttributes({ headingContent: value })}
-        className="admin-hero__input"
+        className="uha-admin__input"
       />
       <CheckboxControl
         label="Display a caption below the heading"
@@ -24,7 +24,7 @@ export const ContentBlock = ({props}) => {
         onChange={(value) => props.setAttributes({ isCaption: value })}
       />
       {props.attributes.isCaption ? (
-        <div className="admin-hero__input admin-hero__option-group">
+        <div className="uha-admin__input uha-admin__option-group">
           <label htmlFor="caption-content" className="components-base-control__label">
             {__("Caption content to be displayed below heading")}
           </label>
@@ -32,7 +32,7 @@ export const ContentBlock = ({props}) => {
             value={props.attributes.captionContent}
             onChange={(value) => props.setAttributes({ captionContent: value })}
             id="caption-content"
-            className="admin-hero__container__side-content__rich-input admin-hero__input"
+            className="uha-admin__container__side-content__rich-input uha-admin__input"
           />
         </div>
       ) : null}
@@ -42,12 +42,12 @@ export const ContentBlock = ({props}) => {
         onChange={(value) => props.setAttributes({ isCallToAction: value })}
       />
       {props.attributes.isCallToAction ? (
-        <div className="admin-hero__input admin-hero__option-group">
+        <div className="uha-admin__input uha-admin__option-group">
           <TextControl
             value={props.attributes.callToActionText}
             onChange={(value) => props.setAttributes({ callToActionText: value })}
             label="Text to display on call-to-action button"
-            className="admin-hero__input"
+            className="uha-admin__input"
           />
           <TextControl
             value={props.attributes.callToActionUrl}
@@ -55,7 +55,7 @@ export const ContentBlock = ({props}) => {
             label="Call-to-action URL"
             help="Type something like '/about' or '/data' in order to link to an internal page"
             type="url"
-            className="admin-hero__input"
+            className="uha-admin__input"
           />
         </div>
       ) : null}
