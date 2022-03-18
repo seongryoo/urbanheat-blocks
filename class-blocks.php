@@ -1,7 +1,7 @@
 <?php
 
 include( plugin_dir_path( __FILE__ ) . 'register-blocks/hero-block.php' );
-include( plugin_dir_path( __FILE__ ) . 'register-blocks/ext-news=data-block.php' );
+include( plugin_dir_path( __FILE__ ) . 'register-blocks/ext-news-data-block.php' );
 
 class UrbanHeatATL_Blocks {
   const STYLES = array(

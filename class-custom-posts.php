@@ -8,7 +8,7 @@ class UrbanHeatATL_CustomPosts {
       'rewrite'                 => true,
       'query_var'               => true,
     );
-    register_taxonomy( 'news-tags', 'ext-news', $args );
+    register_taxonomy( 'ext-news-tags', 'ext-news', $args );
   }
   function init__register_ext_news() {
     $labels = array(
@@ -35,6 +35,7 @@ class UrbanHeatATL_CustomPosts {
       'menu_icon'               => 'dashicons-id-alt',
       'show_in_rest'            => true,
       'publicly_queryable'      => false,
+      'taxonomies'                => array( 'ext-news-tags' )
     );
     $supports = array(
       'custom-fields',
@@ -85,20 +86,37 @@ class UrbanHeatATL_CustomPosts {
       $columns[ 'date' ] = 'Post created';
       $columns[ 'article_source' ] = 'News source';
       $columns[ 'article_date' ] = 'Article date';
+      $columns[ 'ext_news_tags' ] = 'Tags';
       return $columns;
     } );
     add_filter( 'manage_ext_news_posts_custom_column', function( $column, $post_id ) {
       switch ( $column ) {
         case 'article_date':
           $date = get_post_meta( $post_id, 'ext_news__date', true );
-          $date_obj = date_create( $date );
-          $date_label = date_format( $date_obj, 'F jS, Y' );
-          $date_day = date_format( $date_obj, 'l' );
-          echo $date_label . '<br>' . $date_day;
+          if ( ! $date ) {
+            echo 'No article publish date provided';
+          } else {
+            $date_obj = date_create( $date );
+            $date_label = date_format( $date_obj, 'F jS, Y' );
+            $date_day = date_format( $date_obj, 'l' );
+            echo $date_label . '<br>' . $date_day;
+          }
           break;
         case 'article_source':
           $source = get_post_meta( $post_id, 'ext_news__source', true );
-          echo $source;
+          if ( ! $source ) {
+            echo 'No source provided';
+          } else {
+            echo $source;
+          }
+          break;
+        case 'ext_news_tags':
+          $tags = wp_get_post_terms( $post_id, 'ext-news-tags', array( 'fields' => 'names' ) );
+          if ( sizeof( $tags ) == 0 ) {
+            echo 'No tags';
+          } else {
+            echo implode( ', ', $tags );
+          }
           break;
       }
     }, 10, 2 );
