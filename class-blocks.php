@@ -1,6 +1,7 @@
 <?php
 
-include( plugin_dir_path( __FILE__ ) . 'block-rendering/hero-block.php' );
+include( plugin_dir_path( __FILE__ ) . 'register-blocks/hero-block.php' );
+include( plugin_dir_path( __FILE__ ) . 'register-blocks/ext-news=data-block.php' );
 
 class UrbanHeatATL_Blocks {
   const STYLES = array(
@@ -16,7 +17,7 @@ class UrbanHeatATL_Blocks {
     'wp-editor',
     'wp-date',
   );
-  function actions__editor() {
+  function action__editor_assets() {
     add_action( 'enqueue_block_editor_assets', function() {
       $styles = constant( __CLASS__ . '::STYLES' );
       $scripts = constant( __CLASS__ . '::SCRIPTS' );
@@ -37,6 +38,9 @@ class UrbanHeatATL_Blocks {
         );
       }
     } );
+  }
+  function actions__editor() {
+    $this->action__editor_assets();
   }
   function filters__editor() {
     
