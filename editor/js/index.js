@@ -167,6 +167,82 @@ const SwitchPicture = (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createE
 
 /***/ }),
 
+/***/ "./src/ext-news-feed.js":
+/*!******************************!*\
+  !*** ./src/ext-news-feed.js ***!
+  \******************************/
+/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "ExternalNewsFeedBlockArgs": function() { return /* binding */ ExternalNewsFeedBlockArgs; }
+/* harmony export */ });
+/* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @wordpress/element */ "@wordpress/element");
+/* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _content_block__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./_content-block */ "./src/_content-block.js");
+/* harmony import */ var _icons_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./_icons.js */ "./src/_icons.js");
+
+
+
+const {
+  __
+} = wp.i18n;
+const {
+  TextareaControl,
+  TextControl,
+  CheckboxControl,
+  SelectControl,
+  Icon
+} = wp.components;
+const {
+  RichText
+} = wp.blockEditor;
+const ExternalNewsFeedBlockArgs = {
+  title: 'Recent news',
+  icon: 'testimonial',
+  category: 'media',
+  edit: props => {
+    return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+      className: "uha-admin"
+    }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("span", {
+      className: "uha-admin__block-label"
+    }, "Recent news"), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+      className: "uha-admin--padded"
+    }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(SelectControl, {
+      options: [{
+        label: '3',
+        value: '3'
+      }, {
+        label: '6',
+        value: '6'
+      }, {
+        label: '9',
+        value: '9'
+      }, {
+        label: '12',
+        value: '12'
+      }, {
+        label: 'Show all',
+        value: 'ALL'
+      }],
+      label: "Number of articles to display",
+      value: props.attributes.numArticles,
+      onChange: value => props.setAttributes({
+        numArticles: value
+      })
+    }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(CheckboxControl, {
+      label: "Show newest articles first",
+      checked: props.attributes.isNewestFirst,
+      onChange: value => props.setAttributes({
+        isNewestFirst: value
+      })
+    })));
+  },
+  save: props => null
+};
+
+/***/ }),
+
 /***/ "./src/ext-news.js":
 /*!*************************!*\
   !*** ./src/ext-news.js ***!
@@ -461,6 +537,8 @@ var __webpack_exports__ = {};
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _ext_news__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./ext-news */ "./src/ext-news.js");
 /* harmony import */ var _hero__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./hero */ "./src/hero.js");
+/* harmony import */ var _ext_news_feed__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./ext-news-feed */ "./src/ext-news-feed.js");
+
 
 
 const {
@@ -468,6 +546,7 @@ const {
 } = wp.blocks;
 registerBlockType("urbanheat/hero-block", _hero__WEBPACK_IMPORTED_MODULE_1__.HeroBlockArgs);
 registerBlockType("urbanheat/ext-news-data", _ext_news__WEBPACK_IMPORTED_MODULE_0__.ExternalNewsDataBlockArgs);
+registerBlockType("urbanheat/ext-news-feed", _ext_news_feed__WEBPACK_IMPORTED_MODULE_2__.ExternalNewsFeedBlockArgs);
 }();
 /******/ })()
 ;

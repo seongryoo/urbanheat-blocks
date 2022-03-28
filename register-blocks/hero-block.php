@@ -44,23 +44,23 @@ class HeroBlock {
     $is_graphic_left        = $attributes[ 'isGraphicLeft' ];
     $graphic_iframe         = $content;
 
-    $text_content = '<div class="hero__content__text">';
-      $text_content .= '<div class="hero__content__text__heading">' . $heading_content . '</div>';
+    $text_content = '<div class="hero__container__content__text">';
+      $text_content .= '<div class="hero__container__content__text__heading">' . $heading_content . '</div>';
       if ( $is_caption ) {
-        $text_content .= '<div class="hero__content__text__caption">' . $caption_content . '</div>';
+        $text_content .= '<div class="hero__container__content__text__caption">' . $caption_content . '</div>';
       }
       if ( $is_call_to_action ) {
         if ( $is_caption ) {
-          $text_content .= "<a class=\"button button--gradient hero__content__text__button\" href=\"{$call_to_action_url}\">{$call_to_action_text}</a>";  
+          $text_content .= "<a class=\"button button--gradient hero__container__content__text__button\" href=\"{$call_to_action_url}\">{$call_to_action_text}</a>";  
         } else {
-          $text_content .= "<a class=\"button button--gradient hero__content__text__button hero__content__text__button--no-caption\" href=\"{$call_to_action_url}\">{$call_to_action_text}</a>";  
+          $text_content .= "<a class=\"button button--gradient hero__container__content__text__button hero__container__content__text__button--no-caption\" href=\"{$call_to_action_url}\">{$call_to_action_text}</a>";  
         }
       }
     $text_content .= '</div>';
     if ( $is_video ) {
-      $graphic = '<div class="hero__content__video">' . $graphic_iframe . '</div>';
+      $graphic = '<div class="hero__container__content__video">' . $graphic_iframe . '</div>';
     } else {
-      $graphic = '<div class="hero__content__image">' . $graphic_iframe . '</div>';
+      $graphic = '<div class="hero__container__content__image">' . $graphic_iframe . '</div>';
     }
 
     // Image/text direction setting
@@ -73,11 +73,13 @@ class HeroBlock {
     }
 
     return "<div class=\"hero\">
-              <div class=\"hero__content hero__content--left\">
-                {$left_content}
-              </div>
-              <div class=\"hero__content hero__content--right\">
-                {$right_content}
+              <div class=\"hero__container contained\">
+                <div class=\"hero__container__content hero__container__content--left\">
+                  {$left_content}
+                </div>
+                <div class=\"hero__container__content hero__container__content--right\">
+                  {$right_content}
+                </div>
               </div>
             </div>";
   }
