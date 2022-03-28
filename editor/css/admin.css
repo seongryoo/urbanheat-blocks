@@ -63,3 +63,7 @@
   border-left: 2px solid rgba(182, 182, 182, 0.445);
   padding-left: 1rem;
 }
+
+.uha-admin__item {
+  padding-left: 1rem;
+}

@@ -6,6 +6,10 @@ class HeroBlock {
     'headingContent' => array(
       'type' => 'string'
     ),
+    'isGradientBackground' => array(
+      'type' => 'boolean',
+      'default' => FALSE,
+    ),
     'isGraphicLeft' => array(
       'type' => 'boolean',
       'default' => TRUE,
@@ -42,6 +46,7 @@ class HeroBlock {
     $is_call_to_action      = $attributes[ 'isCallToAction' ];
     $is_video               = $attributes[ 'isVideo' ];
     $is_graphic_left        = $attributes[ 'isGraphicLeft' ];
+    $is_gradient_background = $attributes[ 'isGradientBackground' ];
     $graphic_iframe         = $content;
 
     $text_content = '<div class="hero__container__content__text">';
@@ -72,7 +77,12 @@ class HeroBlock {
       $right_content = $graphic;
     }
 
-    return "<div class=\"hero\">
+    $classes = '';
+    if ( $is_gradient_background ) {
+      $classes .= ' hero--gradient-bg';
+    }
+
+    return "<div class=\"hero{$classes}\">
               <div class=\"hero__container contained\">
                 <div class=\"hero__container__content hero__container__content--left\">
                   {$left_content}

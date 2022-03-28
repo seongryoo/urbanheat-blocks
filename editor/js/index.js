@@ -377,7 +377,8 @@ const {
 } = wp.i18n;
 const {
   Button,
-  Icon
+  Icon,
+  CheckboxControl
 } = wp.components;
 const {
   InnerBlocks
@@ -438,7 +439,14 @@ const HeroBlockArgs = {
     }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(Icon, {
       icon: _icons_js__WEBPACK_IMPORTED_MODULE_2__.Swap,
       className: "uha-admin-button__icon"
-    }), __(swapButtonText)));
+    }), __(swapButtonText)), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(CheckboxControl, {
+      label: "Gradient background",
+      checked: props.attributes.isGradientBackground,
+      className: "uha-admin__item",
+      onChange: value => props.setAttributes({
+        isGradientBackground: value
+      })
+    }));
   },
   save: props => {
     return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(InnerBlocks.Content, null);

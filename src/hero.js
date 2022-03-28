@@ -5,6 +5,7 @@ const { __ } = wp.i18n;
 const {
   Button,
   Icon,
+  CheckboxControl,
 } = wp.components;
 
 const {
@@ -91,6 +92,12 @@ export const HeroBlockArgs = {
           />
           {__(swapButtonText)}
         </Button>
+        <CheckboxControl
+          label="Gradient background"
+          checked={props.attributes.isGradientBackground}
+          className="uha-admin__item"
+          onChange={(value) => props.setAttributes({ isGradientBackground: value })}
+        />
       </div>
     );
   },
