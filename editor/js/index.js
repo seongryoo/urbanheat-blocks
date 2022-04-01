@@ -2,6 +2,45 @@
 /******/ 	"use strict";
 /******/ 	var __webpack_modules__ = ({
 
+/***/ "./src/_attr-helpers.js":
+/*!******************************!*\
+  !*** ./src/_attr-helpers.js ***!
+  \******************************/
+/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "getAttr": function() { return /* binding */ getAttr; },
+/* harmony export */   "storeAttr": function() { return /* binding */ storeAttr; }
+/* harmony export */ });
+const getAttr = (props, attr) => {
+  if (props.attributes[attr] != '') {
+    const theString = props.attributes[attr];
+
+    try {
+      const theJSON = JSON.parse(theString);
+      return theJSON.data;
+    } catch (e) {
+      return [];
+    }
+  } else {
+    const emptyArray = [];
+    return emptyArray;
+  }
+}; // Helper method which stores JSON object as string attribute
+
+const storeAttr = (props, attr, value) => {
+  const theJSON = {
+    data: value
+  };
+  const theString = JSON.stringify(theJSON);
+  props.setAttributes({
+    [attr]: theString
+  });
+};
+
+/***/ }),
+
 /***/ "./src/_content-block.js":
 /*!*******************************!*\
   !*** ./src/_content-block.js ***!
@@ -93,7 +132,9 @@ const ContentBlock = _ref => {
 
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "AddPerson": function() { return /* binding */ AddPerson; },
 /* harmony export */   "Hero": function() { return /* binding */ Hero; },
+/* harmony export */   "Portrait": function() { return /* binding */ Portrait; },
 /* harmony export */   "Swap": function() { return /* binding */ Swap; },
 /* harmony export */   "SwitchPicture": function() { return /* binding */ SwitchPicture; },
 /* harmony export */   "SwitchVideo": function() { return /* binding */ SwitchVideo; },
@@ -164,6 +205,32 @@ const SwitchPicture = (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createE
 }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("path", {
   d: "M20 4v12H8V4h12m0-2H8c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm-8.5 9.67l1.69 2.26 2.48-3.1L19 15H9zM2 6v14c0 1.1.9 2 2 2h14v-2H4V6H2z"
 }));
+const Portrait = (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("svg", {
+  xmlns: "http://www.w3.org/2000/svg",
+  height: "24px",
+  viewBox: "0 0 24 24",
+  width: "24px",
+  fill: "#000000"
+}, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("path", {
+  d: "M0 0h24v24H0z",
+  fill: "none"
+}), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("path", {
+  d: "M12 12.25c1.24 0 2.25-1.01 2.25-2.25S13.24 7.75 12 7.75 9.75 8.76 9.75 10s1.01 2.25 2.25 2.25zm4.5 4c0-1.5-3-2.25-4.5-2.25s-4.5.75-4.5 2.25V17h9v-.75zM19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 16H5V5h14v14z"
+}));
+const AddPerson = (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("svg", {
+  xmlns: "http://www.w3.org/2000/svg",
+  "enable-background": "new 0 0 24 24",
+  height: "24px",
+  viewBox: "0 0 24 24",
+  width: "24px",
+  fill: "#000000"
+}, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("g", null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("rect", {
+  fill: "none",
+  height: "24",
+  width: "24"
+})), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("g", null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("path", {
+  d: "M13,8c0-2.21-1.79-4-4-4S5,5.79,5,8s1.79,4,4,4S13,10.21,13,8z M15,10v2h3v3h2v-3h3v-2h-3V7h-2v3H15z M1,18v2h16v-2 c0-2.66-5.33-4-8-4S1,15.34,1,18z"
+})));
 
 /***/ }),
 
@@ -458,6 +525,76 @@ const HeroBlockArgs = {
 
 /***/ }),
 
+/***/ "./src/profiles.js":
+/*!*************************!*\
+  !*** ./src/profiles.js ***!
+  \*************************/
+/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "ProfileShowcaseBlockArgs": function() { return /* binding */ ProfileShowcaseBlockArgs; }
+/* harmony export */ });
+/* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @wordpress/element */ "@wordpress/element");
+/* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _icons__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./_icons */ "./src/_icons.js");
+/* harmony import */ var _attr_helpers__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./_attr-helpers */ "./src/_attr-helpers.js");
+
+
+
+const {
+  Icon,
+  Button,
+  TextControl
+} = wp.components;
+const ProfileShowcaseBlockArgs = {
+  title: 'Profile showcase',
+  icon: _icons__WEBPACK_IMPORTED_MODULE_1__.Portrait,
+  attributes: {
+    profilesArray: {
+      type: 'string'
+    }
+  },
+  edit: props => {
+    const profilesArray = (0,_attr_helpers__WEBPACK_IMPORTED_MODULE_2__.getAttr)(props, "profilesArray");
+
+    const handleNewBlankPerson = () => {
+      const template = {
+        imgId: "",
+        imgUrl: "",
+        imgAlt: "",
+        name: "",
+        desc: ""
+      };
+      let newPerson = template;
+      profilesArray.push(newPerson);
+      (0,_attr_helpers__WEBPACK_IMPORTED_MODULE_2__.storeAttr)(props, "profilesArray", profilesArray);
+    };
+
+    return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("p", null, "Hello"), profilesArray.map((profile, personId) => {
+      return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+        key: personId
+      }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(TextControl, {
+        onChange: value => {
+          profile.name = value;
+          (0,_attr_helpers__WEBPACK_IMPORTED_MODULE_2__.storeAttr)(props, "profilesArray", profilesArray);
+        },
+        label: "Name" + personId,
+        value: profile.name
+      }));
+    }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(Button, {
+      onClick: handleNewBlankPerson,
+      className: "uha-admin-button"
+    }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(Icon, {
+      icon: _icons__WEBPACK_IMPORTED_MODULE_1__.AddPerson,
+      className: "uha-admin-button__icon"
+    }), "Add bio"));
+  },
+  save: props => {}
+};
+
+/***/ }),
+
 /***/ "@wordpress/element":
 /*!*********************************!*\
   !*** external ["wp","element"] ***!
@@ -546,6 +683,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _ext_news__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./ext-news */ "./src/ext-news.js");
 /* harmony import */ var _hero__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./hero */ "./src/hero.js");
 /* harmony import */ var _ext_news_feed__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./ext-news-feed */ "./src/ext-news-feed.js");
+/* harmony import */ var _profiles__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./profiles */ "./src/profiles.js");
+
 
 
 
@@ -555,6 +694,7 @@ const {
 registerBlockType("urbanheat/hero-block", _hero__WEBPACK_IMPORTED_MODULE_1__.HeroBlockArgs);
 registerBlockType("urbanheat/ext-news-data", _ext_news__WEBPACK_IMPORTED_MODULE_0__.ExternalNewsDataBlockArgs);
 registerBlockType("urbanheat/ext-news-feed", _ext_news_feed__WEBPACK_IMPORTED_MODULE_2__.ExternalNewsFeedBlockArgs);
+registerBlockType("urbanheat/profile-showcase", _profiles__WEBPACK_IMPORTED_MODULE_3__.ProfileShowcaseBlockArgs);
 }();
 /******/ })()
 ;
