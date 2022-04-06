@@ -1,3 +1,14 @@
+/* From the A11y Project */
+.visually-hidden {
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  height: 1px;
+  overflow: hidden;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+}
+
 .uha-admin-button__icon {
   margin-right: 0.5rem;
 }
@@ -54,9 +65,17 @@
   flex-direction: column;
 }
 
-.uha-admin__container__side-content__rich-input {
+.uha-admin__rich-input {
+  border-radius: 2px;
   border: 1px solid gray;
+  background: white;
+  width: 500px;
+  height: 200px;
   padding: 0.5rem;
+}
+.uha-admin__rich-input:focus-visible {
+  border: 1px solid blue;
+  outline: 1px solid blue;
 }
 
 .uha-admin__option-group {
@@ -66,4 +85,47 @@
 
 .uha-admin__item {
   padding-left: 1rem;
+}
+
+.uha-admin__shaded-group {
+  background: #eaeaea;
+  padding: 1rem;
+  margin-bottom: 1rem;
+}
+
+.uha-profile-showcase__profile__flex {
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: flex-end;
+}
+.uha-profile-showcase__profile__flex__info {
+  margin-left: 1rem;
+
+}
+.uha-profile-showcase__profile__flex__picture {
+
+}
+.uha-profile-pic__prev__image {
+  width: 150px;
+  height: 150px;
+  border-radius: 100px;
+  background: white;
+  border: 1px solid gray;
+  overflow: hidden;
+  line-height: 150px;
+}
+.uha-profile-pic__button {
+  height: auto;
+  display: flex;
+  flex-direction: column;
+}
+.uha-profile-pic__prev__image .uha-profile-pic__prev__image__img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.uha-profile-pic__text {
+  display: flex;
+  align-items: center;
+  margin-top: 1rem;
 }

@@ -32,7 +32,7 @@ export const ContentBlock = ({props}) => {
             value={props.attributes.captionContent}
             onChange={(value) => props.setAttributes({ captionContent: value })}
             id="caption-content"
-            className="uha-admin__container__side-content__rich-input uha-admin__input"
+            className="uha-admin__rich-input uha-admin__input"
           />
         </div>
       ) : null}
