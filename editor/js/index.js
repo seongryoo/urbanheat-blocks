@@ -134,10 +134,12 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "AddPerson": function() { return /* binding */ AddPerson; },
 /* harmony export */   "Hero": function() { return /* binding */ Hero; },
+/* harmony export */   "People": function() { return /* binding */ People; },
 /* harmony export */   "Portrait": function() { return /* binding */ Portrait; },
 /* harmony export */   "Swap": function() { return /* binding */ Swap; },
 /* harmony export */   "SwitchPicture": function() { return /* binding */ SwitchPicture; },
 /* harmony export */   "SwitchVideo": function() { return /* binding */ SwitchVideo; },
+/* harmony export */   "Trash": function() { return /* binding */ Trash; },
 /* harmony export */   "Upload": function() { return /* binding */ Upload; }
 /* harmony export */ });
 /* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @wordpress/element */ "@wordpress/element");
@@ -231,6 +233,30 @@ const AddPerson = (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createEleme
 })), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("g", null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("path", {
   d: "M13,8c0-2.21-1.79-4-4-4S5,5.79,5,8s1.79,4,4,4S13,10.21,13,8z M15,10v2h3v3h2v-3h3v-2h-3V7h-2v3H15z M1,18v2h16v-2 c0-2.66-5.33-4-8-4S1,15.34,1,18z"
 })));
+const Trash = (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("svg", {
+  xmlns: "http://www.w3.org/2000/svg",
+  height: "24px",
+  viewBox: "0 0 24 24",
+  width: "24px",
+  fill: "#000000"
+}, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("path", {
+  d: "M0 0h24v24H0z",
+  fill: "none"
+}), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("path", {
+  d: "M6 19c0 1.1.9 2 2 2h8c1.1 0 2-.9 2-2V7H6v12zM19 4h-3.5l-1-1h-5l-1 1H5v2h14V4z"
+}));
+const People = (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("svg", {
+  xmlns: "http://www.w3.org/2000/svg",
+  height: "24px",
+  viewBox: "0 0 24 24",
+  width: "24px",
+  fill: "#000000"
+}, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("path", {
+  d: "M0 0h24v24H0V0z",
+  fill: "none"
+}), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("path", {
+  d: "M9 13.75c-2.34 0-7 1.17-7 3.5V19h14v-1.75c0-2.33-4.66-3.5-7-3.5zM4.34 17c.84-.58 2.87-1.25 4.66-1.25s3.82.67 4.66 1.25H4.34zM9 12c1.93 0 3.5-1.57 3.5-3.5S10.93 5 9 5 5.5 6.57 5.5 8.5 7.07 12 9 12zm0-5c.83 0 1.5.67 1.5 1.5S9.83 10 9 10s-1.5-.67-1.5-1.5S8.17 7 9 7zm7.04 6.81c1.16.84 1.96 1.96 1.96 3.44V19h4v-1.75c0-2.02-3.5-3.17-5.96-3.44zM15 12c1.93 0 3.5-1.57 3.5-3.5S16.93 5 15 5c-.54 0-1.04.13-1.5.35.63.89 1 1.98 1 3.15s-.37 2.26-1 3.15c.46.22.96.35 1.5.35z"
+}));
 
 /***/ }),
 
@@ -246,24 +272,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @wordpress/element */ "@wordpress/element");
 /* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _content_block__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./_content-block */ "./src/_content-block.js");
-/* harmony import */ var _icons_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./_icons.js */ "./src/_icons.js");
-
-
 
 const {
-  __
-} = wp.i18n;
-const {
-  TextareaControl,
-  TextControl,
   CheckboxControl,
-  SelectControl,
-  Icon
+  SelectControl
 } = wp.components;
-const {
-  RichText
-} = wp.blockEditor;
 const ExternalNewsFeedBlockArgs = {
   title: 'Recent news',
   icon: 'testimonial',
@@ -305,7 +318,7 @@ const ExternalNewsFeedBlockArgs = {
       })
     })));
   },
-  save: props => null
+  save: props => props
 };
 
 /***/ }),
@@ -417,7 +430,7 @@ const ExternalNewsDataBlockArgs = {
       alt: props.attributes.img_alt
     }));
   },
-  save: props => null
+  save: props => props
 };
 
 /***/ }),
@@ -516,11 +529,101 @@ const HeroBlockArgs = {
     }));
   },
   save: props => {
-    return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(InnerBlocks.Content, null);
+    return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(InnerBlocks.Content, {
+      props: props
+    });
   },
   title: "Hero Block",
   category: "design",
   icon: _icons_js__WEBPACK_IMPORTED_MODULE_2__.Hero
+};
+
+/***/ }),
+
+/***/ "./src/profile.js":
+/*!************************!*\
+  !*** ./src/profile.js ***!
+  \************************/
+/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "ProfileBlockArgs": function() { return /* binding */ ProfileBlockArgs; }
+/* harmony export */ });
+/* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @wordpress/element */ "@wordpress/element");
+/* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _icons__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./_icons */ "./src/_icons.js");
+
+
+const {
+  MediaUpload,
+  MediaUploadCheck,
+  RichText
+} = wp.blockEditor;
+const {
+  Icon,
+  Button,
+  TextControl
+} = wp.components;
+const ProfileBlockArgs = {
+  title: 'Profile',
+  icon: _icons__WEBPACK_IMPORTED_MODULE_1__.Portrait,
+  edit: props => {
+    return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+      className: "uha-admin uha-profile"
+    }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+      className: "uha-profile__info"
+    }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(TextControl, {
+      onChange: value => props.setAttributes({
+        name: value
+      }),
+      label: "Name",
+      value: props.attributes.name
+    }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("label", {
+      htmlFor: props.clientId + "-desc",
+      className: "components-base-control__label"
+    }, "Description"), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(RichText, {
+      value: props.attributes.desc,
+      onChange: value => props.setAttributes({
+        desc: value
+      }),
+      id: props.clientId + '-desc',
+      className: "uha-admin__rich-input uha-admin__input"
+    })), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+      className: "uha-profile__pic"
+    }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(MediaUploadCheck, null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(MediaUpload, {
+      onSelect: media => {
+        props.setAttributes({
+          imgUrl: media.url,
+          imgAlt: media.alt,
+          imgId: media.id
+        });
+      },
+      value: props.attributes.imgId,
+      render: _ref => {
+        let {
+          open
+        } = _ref;
+        return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(Button, {
+          onClick: open,
+          className: "uha-admin-button uha-profile__pic__button"
+        }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+          className: "uha-profile__pic__prev"
+        }, props.attributes.imgUrl && props.attributes.imgUrl != "" ? (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+          className: "uha-profile__pic__prev__image"
+        }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("img", {
+          src: props.attributes.imgUrl,
+          alt: props.attributes.imgAlt,
+          className: "uha-profile__pic__prev__image__img"
+        })) : (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+          className: "uha-profile__pic__prev__image uha-profile__pic__prev__image--empty",
+          "aria-hidden": "true"
+        }, "No picture")), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("span", {
+          className: "visually-hidden"
+        }, "Choose profile picture", props.attributes.imgUrl && props.attributes.imgUrl != "" ? "Current picture: " + props.attributes.imgUrl : "No picture chosen")));
+      }
+    }))));
+  }
 };
 
 /***/ }),
@@ -550,111 +653,29 @@ const {
 const {
   MediaUpload,
   MediaUploadCheck,
+  InnerBlocks,
   RichText
 } = wp.blockEditor;
 const ProfileShowcaseBlockArgs = {
   title: 'Profile showcase',
-  icon: _icons__WEBPACK_IMPORTED_MODULE_1__.Portrait,
+  icon: _icons__WEBPACK_IMPORTED_MODULE_1__.People,
   attributes: {
     profilesArray: {
       type: 'string'
     }
   },
   edit: props => {
-    const profilesArray = (0,_attr_helpers__WEBPACK_IMPORTED_MODULE_2__.getAttr)(props, "profilesArray");
-
-    const handleNewBlankPerson = () => {
-      const template = {
-        imgId: "",
-        imgUrl: "",
-        imgAlt: "",
-        name: "",
-        desc: ""
-      };
-      let newPerson = template;
-      profilesArray.push(newPerson);
-      (0,_attr_helpers__WEBPACK_IMPORTED_MODULE_2__.storeAttr)(props, "profilesArray", profilesArray);
-    };
-
-    return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("form", {
-      id: "profile-showcase",
-      className: "uha-profile-showcase uha-admin",
-      autocomplete: "off"
-    }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("p", null, "Hello"), profilesArray.map((profile, personId) => {
-      return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("fieldset", {
-        key: personId,
-        form: "profile-showcase",
-        className: "uha-profile-showcase__profile uha-admin__shaded-group"
-      }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("legend", {
-        className: "visually-hidden"
-      }, "Profile ", personId + 1), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
-        className: "uha-profile-showcase__profile__flex"
-      }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
-        className: "uha-profile-showcase__profile__flex__info"
-      }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(TextControl, {
-        onChange: value => {
-          profile.name = value;
-          (0,_attr_helpers__WEBPACK_IMPORTED_MODULE_2__.storeAttr)(props, "profilesArray", profilesArray);
-        },
-        label: "Name",
-        value: profile.name
-      }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
-        className: ""
-      }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("label", {
-        htmlFor: "prof-desc-" + (personId + 1),
-        className: "components-base-control__label"
-      }, "Description"), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(RichText, {
-        value: profile.desc,
-        onChange: value => {
-          profile.desc = value;
-          (0,_attr_helpers__WEBPACK_IMPORTED_MODULE_2__.storeAttr)(props, "profilesArray", profilesArray);
-        },
-        id: "prof-desc-" + (personId + 1),
-        className: "uha-admin__rich-input uha-admin__input"
-      }))), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
-        className: "uha-profile-pic"
-      }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(MediaUploadCheck, null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(MediaUpload, {
-        onSelect: media => {
-          profile.imgUrl = media.url;
-          profile.imgAlt = media.alt;
-          profile.imgId = media.id;
-          (0,_attr_helpers__WEBPACK_IMPORTED_MODULE_2__.storeAttr)(props, "profilesArray", profilesArray);
-        },
-        value: profile.imgId,
-        render: _ref => {
-          let {
-            open
-          } = _ref;
-          return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(Button, {
-            onClick: open,
-            className: "uha-admin-button uha-profile-pic__button"
-          }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
-            className: "uha-profile-pic__prev"
-          }, profile.imgId != "" ? (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
-            className: "uha-profile-pic__prev__image"
-          }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("img", {
-            src: profile.imgUrl,
-            alt: profile.imgAlt,
-            className: "uha-profile-pic__prev__image__img"
-          })) : (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
-            className: "uha-profile-pic__prev__image uha-profile-pic__prev__image--empty"
-          }, "No picture")), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
-            className: "uha-profile-pic__text"
-          }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(Icon, {
-            icon: _icons__WEBPACK_IMPORTED_MODULE_1__.Upload,
-            className: "uha-admin-button__icon"
-          }), profile.imgId == "" ? "Upload profile image" : "Change profile image"));
-        }
-      })))));
-    }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(Button, {
-      onClick: handleNewBlankPerson,
-      className: "uha-admin-button"
-    }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(Icon, {
-      icon: _icons__WEBPACK_IMPORTED_MODULE_1__.AddPerson,
-      className: "uha-admin-button__icon"
-    }), "Add new profile"));
+    return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+      className: "uha-admin uha-profile-showcase"
+    }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(InnerBlocks, {
+      template: [["urbanheat/profile"]],
+      allowedBlocks: ["urbanheat/profile"],
+      renderAppender: InnerBlocks.ButtonBlockAppender
+    }));
   },
-  save: props => {}
+  save: props => {
+    return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(InnerBlocks.Content, null);
+  }
 };
 
 /***/ }),
@@ -748,6 +769,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _hero__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./hero */ "./src/hero.js");
 /* harmony import */ var _ext_news_feed__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./ext-news-feed */ "./src/ext-news-feed.js");
 /* harmony import */ var _profiles__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./profiles */ "./src/profiles.js");
+/* harmony import */ var _profile__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./profile */ "./src/profile.js");
+
 
 
 
@@ -759,6 +782,7 @@ registerBlockType("urbanheat/hero-block", _hero__WEBPACK_IMPORTED_MODULE_1__.Her
 registerBlockType("urbanheat/ext-news-data", _ext_news__WEBPACK_IMPORTED_MODULE_0__.ExternalNewsDataBlockArgs);
 registerBlockType("urbanheat/ext-news-feed", _ext_news_feed__WEBPACK_IMPORTED_MODULE_2__.ExternalNewsFeedBlockArgs);
 registerBlockType("urbanheat/profile-showcase", _profiles__WEBPACK_IMPORTED_MODULE_3__.ProfileShowcaseBlockArgs);
+registerBlockType("urbanheat/profile", _profile__WEBPACK_IMPORTED_MODULE_4__.ProfileBlockArgs);
 }();
 /******/ })()
 ;

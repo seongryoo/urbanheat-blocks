@@ -1,16 +1,7 @@
-import { ContentBlock } from "./_content-block";
-import { Hero, Swap, SwitchPicture, SwitchVideo } from "./_icons.js";
-const { __ } = wp.i18n;
 const {
-  TextareaControl,
-  TextControl,
   CheckboxControl,
   SelectControl,
-  Icon,
 } = wp.components;
-const {
-  RichText,
-} = wp.blockEditor;
 
 export const ExternalNewsFeedBlockArgs = {
   title: 'Recent news',
@@ -45,5 +36,5 @@ export const ExternalNewsFeedBlockArgs = {
       </div>
     );
   },
-  save: (props) => null,
+  save: (props) => props,
 };

@@ -65,5 +65,5 @@ export const ExternalNewsDataBlockArgs = {
       </div>
     )
   },
-  save: (props) => null,
+  save: (props) => props,
 }

@@ -102,7 +102,7 @@ export const HeroBlockArgs = {
     );
   },
   save: (props) => {
-    return <InnerBlocks.Content />;
+    return <InnerBlocks.Content props={props}/>;
   },
   title: "Hero Block",
   category: "design",

@@ -64,7 +64,7 @@ class ExternalNewsFeedBlock {
 
     $markup = '';
     $markup .= '<div class="ext-news">';
-    $markup .= '<ul class="carousel carousel--' . $num_cols . '-col">';
+    $markup .= '<ul class="legible carousel carousel--' . $num_cols . '-col">';
       $query = new WP_Query( array(
         'post_type'       => 'ext_news',
         'posts_per_page'  => -1,
