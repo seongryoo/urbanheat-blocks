@@ -5,6 +5,9 @@ include( plugin_dir_path( __FILE__ ) . 'register-blocks/ext-news-data-block.php'
 include( plugin_dir_path( __FILE__ ) . 'register-blocks/ext-news-feed-block.php' );
 include( plugin_dir_path( __FILE__ ) . 'register-blocks/profiles-block.php' );
 include( plugin_dir_path( __FILE__ ) . 'register-blocks/profile-block.php' );
+include( plugin_dir_path( __FILE__ ) . 'register-blocks/logo-gallery.php' );
+
+
 
 class UrbanHeatATL_Blocks {
   const STYLES = array(

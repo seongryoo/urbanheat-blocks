@@ -2,45 +2,6 @@
 /******/ 	"use strict";
 /******/ 	var __webpack_modules__ = ({
 
-/***/ "./src/_attr-helpers.js":
-/*!******************************!*\
-  !*** ./src/_attr-helpers.js ***!
-  \******************************/
-/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
-
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "getAttr": function() { return /* binding */ getAttr; },
-/* harmony export */   "storeAttr": function() { return /* binding */ storeAttr; }
-/* harmony export */ });
-const getAttr = (props, attr) => {
-  if (props.attributes[attr] != '') {
-    const theString = props.attributes[attr];
-
-    try {
-      const theJSON = JSON.parse(theString);
-      return theJSON.data;
-    } catch (e) {
-      return [];
-    }
-  } else {
-    const emptyArray = [];
-    return emptyArray;
-  }
-}; // Helper method which stores JSON object as string attribute
-
-const storeAttr = (props, attr, value) => {
-  const theJSON = {
-    data: value
-  };
-  const theString = JSON.stringify(theJSON);
-  props.setAttributes({
-    [attr]: theString
-  });
-};
-
-/***/ }),
-
 /***/ "./src/_content-block.js":
 /*!*******************************!*\
   !*** ./src/_content-block.js ***!
@@ -136,6 +97,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "Hero": function() { return /* binding */ Hero; },
 /* harmony export */   "People": function() { return /* binding */ People; },
 /* harmony export */   "Portrait": function() { return /* binding */ Portrait; },
+/* harmony export */   "Stories": function() { return /* binding */ Stories; },
 /* harmony export */   "Swap": function() { return /* binding */ Swap; },
 /* harmony export */   "SwitchPicture": function() { return /* binding */ SwitchPicture; },
 /* harmony export */   "SwitchVideo": function() { return /* binding */ SwitchVideo; },
@@ -256,6 +218,20 @@ const People = (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)
   fill: "none"
 }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("path", {
   d: "M9 13.75c-2.34 0-7 1.17-7 3.5V19h14v-1.75c0-2.33-4.66-3.5-7-3.5zM4.34 17c.84-.58 2.87-1.25 4.66-1.25s3.82.67 4.66 1.25H4.34zM9 12c1.93 0 3.5-1.57 3.5-3.5S10.93 5 9 5 5.5 6.57 5.5 8.5 7.07 12 9 12zm0-5c.83 0 1.5.67 1.5 1.5S9.83 10 9 10s-1.5-.67-1.5-1.5S8.17 7 9 7zm7.04 6.81c1.16.84 1.96 1.96 1.96 3.44V19h4v-1.75c0-2.02-3.5-3.17-5.96-3.44zM15 12c1.93 0 3.5-1.57 3.5-3.5S16.93 5 15 5c-.54 0-1.04.13-1.5.35.63.89 1 1.98 1 3.15s-.37 2.26-1 3.15c.46.22.96.35 1.5.35z"
+}));
+const Stories = (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("svg", {
+  xmlns: "http://www.w3.org/2000/svg",
+  "enable-background": "new 0 0 24 24",
+  height: "24px",
+  viewBox: "0 0 24 24",
+  width: "24px",
+  fill: "#000000"
+}, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("rect", {
+  fill: "none",
+  height: "24",
+  width: "24"
+}), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("path", {
+  d: "M18,4c1.1,0,2,0.9,2,2v12c0,1.1-0.9,2-2,2V4z M3,20c0,1.1,0.9,2,2,2h9c1.1,0,2-0.9,2-2V4c0-1.1-0.9-2-2-2H5C3.9,2,3,2.9,3,4 V20z M22,18c0.83,0,1.5-0.67,1.5-1.5v-9C23.5,6.67,22.83,6,22,6V18z"
 }));
 
 /***/ }),
@@ -540,6 +516,42 @@ const HeroBlockArgs = {
 
 /***/ }),
 
+/***/ "./src/logo-gallery.js":
+/*!*****************************!*\
+  !*** ./src/logo-gallery.js ***!
+  \*****************************/
+/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "LogoGalleryBlockArgs": function() { return /* binding */ LogoGalleryBlockArgs; }
+/* harmony export */ });
+/* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @wordpress/element */ "@wordpress/element");
+/* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _icons__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./_icons */ "./src/_icons.js");
+
+
+const {
+  InnerBlocks
+} = wp.blockEditor;
+const LogoGalleryBlockArgs = {
+  title: 'Logo gallery',
+  icon: _icons__WEBPACK_IMPORTED_MODULE_1__.Stories,
+  attributes: {},
+  edit: props => {
+    return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+      className: "uha-admin uha-logo-gallery"
+    }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(InnerBlocks, {
+      template: [["core/image"]],
+      allowedBlocks: ["core/image"],
+      renderAppender: InnerBlocks.ButtonBlockAppender
+    }));
+  },
+  save: props => (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(InnerBlocks.Content, null)
+};
+
+/***/ }),
+
 /***/ "./src/profile.js":
 /*!************************!*\
   !*** ./src/profile.js ***!
@@ -641,29 +653,15 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @wordpress/element */ "@wordpress/element");
 /* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _icons__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./_icons */ "./src/_icons.js");
-/* harmony import */ var _attr_helpers__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./_attr-helpers */ "./src/_attr-helpers.js");
-
 
 
 const {
-  Icon,
-  Button,
-  TextControl
-} = wp.components;
-const {
-  MediaUpload,
-  MediaUploadCheck,
-  InnerBlocks,
-  RichText
+  InnerBlocks
 } = wp.blockEditor;
 const ProfileShowcaseBlockArgs = {
   title: 'Profile showcase',
   icon: _icons__WEBPACK_IMPORTED_MODULE_1__.People,
-  attributes: {
-    profilesArray: {
-      type: 'string'
-    }
-  },
+  attributes: {},
   edit: props => {
     return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
       className: "uha-admin uha-profile-showcase"
@@ -770,6 +768,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _ext_news_feed__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./ext-news-feed */ "./src/ext-news-feed.js");
 /* harmony import */ var _profiles__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./profiles */ "./src/profiles.js");
 /* harmony import */ var _profile__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./profile */ "./src/profile.js");
+/* harmony import */ var _logo_gallery__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./logo-gallery */ "./src/logo-gallery.js");
+
 
 
 
@@ -783,6 +783,7 @@ registerBlockType("urbanheat/ext-news-data", _ext_news__WEBPACK_IMPORTED_MODULE_
 registerBlockType("urbanheat/ext-news-feed", _ext_news_feed__WEBPACK_IMPORTED_MODULE_2__.ExternalNewsFeedBlockArgs);
 registerBlockType("urbanheat/profile-showcase", _profiles__WEBPACK_IMPORTED_MODULE_3__.ProfileShowcaseBlockArgs);
 registerBlockType("urbanheat/profile", _profile__WEBPACK_IMPORTED_MODULE_4__.ProfileBlockArgs);
+registerBlockType("urbanheat/logo-gallery", _logo_gallery__WEBPACK_IMPORTED_MODULE_5__.LogoGalleryBlockArgs);
 }();
 /******/ })()
 ;

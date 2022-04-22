@@ -91,13 +91,17 @@
   margin: 2rem 0;
 }
 
-.uha-profile-showcase {
+.uha-profile-showcase,
+.uha-logo-gallery {
   padding: 1rem;
 }
 .wp-block[data-type="urbanheat/profile"] {
   margin-top: 0;
 }
 .wp-block[data-type="urbanheat/profile"]:nth-last-child(2) {
+  margin-bottom: 0;
+}
+.uha-logo-gallery .wp-block:nth-last-child(2) {
   margin-bottom: 0;
 }
 .uha-profile {

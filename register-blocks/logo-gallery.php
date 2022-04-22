@@ -1,16 +1,14 @@
 <?php
 
-class ProfilesBlock {
-  const BLOCK_NAME = 'urbanheat/profile-showcase';
+class LogoGallery {
+  const BLOCK_NAME = 'urbanheat/logo-gallery';
   const ATTRIBUTES = array(
     
   );
   function render_block( $attributes, $content ) {
     $markup = '';
-    $markup .= '<div class="legible profiles-showcase carousel carousel--2-col">';
+    $markup .= '<div class="logo-gallery legible">';
       $markup .= $content;
-      $markup .= '<div class="carousel__card--dummy"></div>';
-      $markup .= '<div class="carousel__card--dummy"></div>';
     $markup .= '</div>';
     return $markup;
   }
@@ -32,4 +30,4 @@ class ProfilesBlock {
   }
 }
 
-$showcase_block = new ProfilesBlock();
+$logo_gallery = new LogoGallery();
