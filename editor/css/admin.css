@@ -93,15 +93,20 @@
 
 .uha-profile-showcase {
   padding: 1rem;
-  border: none;
 }
-
+.wp-block[data-type="urbanheat/profile"] {
+  margin-top: 0;
+}
+.wp-block[data-type="urbanheat/profile"]:nth-last-child(2) {
+  margin-bottom: 0;
+}
 .uha-profile {
   display: flex;
   flex-direction: row-reverse;
   justify-content: flex-end;
   align-items: center;
   padding: 2rem 1rem;
+  border: 1px solid gray;
 }
 .uha-profile__info {
   margin-left: 2rem;
