@@ -54,7 +54,13 @@ export const ProfileBlockArgs = {
               render={({ open }) => (
                 <>
 
-                  <Button onClick={open} className="uha-admin-button uha-profile__pic__button">
+                  <Button 
+                    onClick={open} 
+                    aria-hidden="true" 
+                    className="uha-admin-button 
+                               uha-profile__pic__button"
+                    variant="secondary"
+                    >
                     <div className="uha-profile__pic__prev">
                       {props.attributes.imgUrl && props.attributes.imgUrl != "" ? (
                         <div className="uha-profile__pic__prev__image">
@@ -71,8 +77,10 @@ export const ProfileBlockArgs = {
                         </div>
                       )}
                     </div>
-                    <span className="visually-hidden">
-                      Choose profile picture
+                  </Button>
+                  <Button onClick={open} className="uha-admin-button" variant="secondary">
+                    Choose profile picture
+                    <span className="visually-hidden">                      
                       {props.attributes.imgUrl && props.attributes.imgUrl != "" ? 
                         "Current picture: " + props.attributes.imgUrl : 
                         "No picture chosen"}
@@ -82,6 +90,18 @@ export const ProfileBlockArgs = {
               )}
             />
           </MediaUploadCheck>
+          <Button
+            onClick={() => {
+              props.setAttributes({
+                imgUrl: null,
+                imgAlt: null,
+                imgId: null,
+              });
+            }}
+            className="uha-admin-button"
+          >
+            Clear picture
+          </Button>
         </div>
       </div>
     );

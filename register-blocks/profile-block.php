@@ -26,23 +26,33 @@ class ProfileBlock {
     $img_alt = $attributes[ 'imgAlt' ];
     $img_id = $attributes[ 'imgId' ];
     $markup = '';
-    $markup .= '<div class="
-                  profile 
-                  windsock 
-                  windsock--narrow 
-                  windsock--centered 
-                  carousel__card">';
-      $markup .= '<img src="' . esc_url( $img_url ) . '" ';
+    $markup .= '<div class="profile 
+                            windsock 
+                            windsock--narrow 
+                            windsock--centered 
+                            carousel__card
+                            carousel--1-col__card
+                            ">';
+      if ( $img_url && $img_url != "" ) {
+        $markup .= '<img src="' . esc_url( $img_url ) . '" ';
         $markup .= 'alt="' . esc_attr( $img_alt ) . '" ';
-        $markup .= 'class="
-                      profile__image 
-                      windsock__image 
-                      windsock__left 
-                      windsock__image--square
-                      windsock__image--rounded">';
+        $markup .= 'class="profile__image 
+                           windsock__image 
+                           windsock__left 
+                           windsock__image--square
+                           windsock__image--rounded
+                           ">';
+      } else {
+        $markup .= '<div class="windsock__image
+                                windsock__left
+                                windsock__image--square
+                                windsock__image--rounded
+                                profile__image
+                                profile__image--empty"></div>';
+      }
       $markup .= '<div class="profile__text windsock__right">';
         $markup .= '<div class="profile__text__name">' . esc_html( $name ) . '</div>';
-        $markup .= '<div class="profile__text__desc">' . esc_html( $desc ) . '</div>';
+        $markup .= '<div class="profile__text__desc">' . $desc . '</div>';
       $markup .= '</div>'; // .profile__text
     $markup .= '</div>'; // .profile
     return $markup;

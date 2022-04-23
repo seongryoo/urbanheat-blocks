@@ -618,7 +618,9 @@ const ProfileBlockArgs = {
         } = _ref;
         return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(Button, {
           onClick: open,
-          className: "uha-admin-button uha-profile__pic__button"
+          "aria-hidden": "true",
+          className: "uha-admin-button \r uha-profile__pic__button",
+          variant: "secondary"
         }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
           className: "uha-profile__pic__prev"
         }, props.attributes.imgUrl && props.attributes.imgUrl != "" ? (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
@@ -630,11 +632,24 @@ const ProfileBlockArgs = {
         })) : (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
           className: "uha-profile__pic__prev__image uha-profile__pic__prev__image--empty",
           "aria-hidden": "true"
-        }, "No picture")), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("span", {
+        }, "No picture"))), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(Button, {
+          onClick: open,
+          className: "uha-admin-button",
+          variant: "secondary"
+        }, "Choose profile picture", (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("span", {
           className: "visually-hidden"
-        }, "Choose profile picture", props.attributes.imgUrl && props.attributes.imgUrl != "" ? "Current picture: " + props.attributes.imgUrl : "No picture chosen")));
+        }, props.attributes.imgUrl && props.attributes.imgUrl != "" ? "Current picture: " + props.attributes.imgUrl : "No picture chosen")));
       }
-    }))));
+    })), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(Button, {
+      onClick: () => {
+        props.setAttributes({
+          imgUrl: null,
+          imgAlt: null,
+          imgId: null
+        });
+      },
+      className: "uha-admin-button"
+    }, "Clear picture")));
   }
 };
 

@@ -7,7 +7,7 @@ class ProfilesBlock {
   );
   function render_block( $attributes, $content ) {
     $markup = '';
-    $markup .= '<div class="legible profiles-showcase carousel carousel--2-col">';
+    $markup .= '<div class="legible profiles-showcase carousel carousel--1-col">';
       $markup .= $content;
       $markup .= '<div class="carousel__card--dummy"></div>';
       $markup .= '<div class="carousel__card--dummy"></div>';
