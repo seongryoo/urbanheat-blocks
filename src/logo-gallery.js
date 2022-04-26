@@ -6,6 +6,7 @@ export const LogoGalleryBlockArgs = {
   title: 'Logo gallery',
   icon: Stories,
   attributes: {},
+  category: 'urbanheat',
   edit: (props) => {
     return (
       <div className="uha-admin uha-logo-gallery">

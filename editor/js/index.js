@@ -94,7 +94,9 @@ const ContentBlock = _ref => {
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "AddPerson": function() { return /* binding */ AddPerson; },
+/* harmony export */   "GridView": function() { return /* binding */ GridView; },
 /* harmony export */   "Hero": function() { return /* binding */ Hero; },
+/* harmony export */   "Link": function() { return /* binding */ Link; },
 /* harmony export */   "People": function() { return /* binding */ People; },
 /* harmony export */   "Portrait": function() { return /* binding */ Portrait; },
 /* harmony export */   "Stories": function() { return /* binding */ Stories; },
@@ -233,6 +235,32 @@ const Stories = (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement
 }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("path", {
   d: "M18,4c1.1,0,2,0.9,2,2v12c0,1.1-0.9,2-2,2V4z M3,20c0,1.1,0.9,2,2,2h9c1.1,0,2-0.9,2-2V4c0-1.1-0.9-2-2-2H5C3.9,2,3,2.9,3,4 V20z M22,18c0.83,0,1.5-0.67,1.5-1.5v-9C23.5,6.67,22.83,6,22,6V18z"
 }));
+const Link = (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("svg", {
+  xmlns: "http://www.w3.org/2000/svg",
+  height: "24px",
+  viewBox: "0 0 24 24",
+  width: "24px",
+  fill: "#000000"
+}, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("path", {
+  d: "M0 0h24v24H0z",
+  fill: "none"
+}), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("path", {
+  d: "M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76 0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76 0 5-2.24 5-5s-2.24-5-5-5z"
+}));
+const GridView = (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("svg", {
+  xmlns: "http://www.w3.org/2000/svg",
+  height: "24px",
+  viewBox: "0 0 24 24",
+  width: "24px",
+  fill: "#000000"
+}, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("g", {
+  "fill-rule": "evenodd"
+}, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("path", {
+  d: "M0 0h24v24H0z",
+  fill: "none"
+}), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("path", {
+  d: "M3 3v8h8V3H3zm6 6H5V5h4v4zm-6 4v8h8v-8H3zm6 6H5v-4h4v4zm4-16v8h8V3h-8zm6 6h-4V5h4v4zm-6 4v8h8v-8h-8zm6 6h-4v-4h4v4z"
+})));
 
 /***/ }),
 
@@ -256,7 +284,7 @@ const {
 const ExternalNewsFeedBlockArgs = {
   title: 'Recent news',
   icon: 'testimonial',
-  category: 'media',
+  category: 'urbanheat',
   edit: props => {
     return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
       className: "uha-admin"
@@ -502,6 +530,13 @@ const HeroBlockArgs = {
       onChange: value => props.setAttributes({
         isGradientBackground: value
       })
+    }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(CheckboxControl, {
+      label: "Large hero banner",
+      checked: props.attributes.isVanguard,
+      className: "uha-admin__item",
+      onChange: value => props.setAttributes({
+        isVanguard: value
+      })
     }));
   },
   save: props => {
@@ -510,8 +545,129 @@ const HeroBlockArgs = {
     });
   },
   title: "Hero Block",
-  category: "design",
+  category: 'urbanheat',
   icon: _icons_js__WEBPACK_IMPORTED_MODULE_2__.Hero
+};
+
+/***/ }),
+
+/***/ "./src/link-card.js":
+/*!**************************!*\
+  !*** ./src/link-card.js ***!
+  \**************************/
+/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "LinkCardBlockArgs": function() { return /* binding */ LinkCardBlockArgs; }
+/* harmony export */ });
+/* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @wordpress/element */ "@wordpress/element");
+/* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _icons__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./_icons */ "./src/_icons.js");
+
+
+const {
+  MediaUpload,
+  MediaUploadCheck,
+  RichText
+} = wp.blockEditor;
+const {
+  Icon,
+  Button,
+  TextControl
+} = wp.components;
+const LinkCardBlockArgs = {
+  title: 'Link Card',
+  icon: _icons__WEBPACK_IMPORTED_MODULE_1__.Link,
+  edit: props => {
+    return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+      className: "uha-admin uha-link-card"
+    }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(TextControl, {
+      onChange: value => props.setAttributes({
+        title: value
+      }),
+      label: "Link title",
+      value: props.attributes.title
+    }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(TextControl, {
+      onChange: value => props.setAttributes({
+        linkUrl: value
+      }),
+      label: "Link URL",
+      value: props.attributes.linkUrl
+    }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("label", {
+      htmlFor: props.clientId + "-desc",
+      className: "components-base-control__label"
+    }, "Description"), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(RichText, {
+      value: props.attributes.desc,
+      onChange: value => props.setAttributes({
+        desc: value
+      }),
+      id: props.clientId + '-desc',
+      className: "uha-admin__rich-input uha-admin__input"
+    }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(MediaUploadCheck, null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(MediaUpload, {
+      onSelect: media => props.setAttributes({
+        imgId: media.id,
+        imgUrl: media.url,
+        imgAlt: media.alt
+      }),
+      value: props.attributes.imgId,
+      render: _ref => {
+        let {
+          open
+        } = _ref;
+        return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(Button, {
+          onClick: open,
+          className: "uha-admin-button"
+        }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(Icon, {
+          icon: _icons__WEBPACK_IMPORTED_MODULE_1__.Upload,
+          className: "uha-admin-button__icon"
+        }), "Attach card image");
+      }
+    })), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("img", {
+      src: props.attributes.imgUrl,
+      alt: props.attributes.imgAlt
+    }));
+  },
+  save: props => null
+};
+
+/***/ }),
+
+/***/ "./src/link-cards.js":
+/*!***************************!*\
+  !*** ./src/link-cards.js ***!
+  \***************************/
+/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "LinkCardsBlockArgs": function() { return /* binding */ LinkCardsBlockArgs; }
+/* harmony export */ });
+/* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @wordpress/element */ "@wordpress/element");
+/* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _icons__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./_icons */ "./src/_icons.js");
+
+
+const {
+  InnerBlocks
+} = wp.blockEditor;
+const LinkCardsBlockArgs = {
+  title: 'Link cards',
+  icon: _icons__WEBPACK_IMPORTED_MODULE_1__.GridView,
+  category: 'urbanheat',
+  attributes: {},
+  edit: props => {
+    return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+      className: "uha-admin uha-profile-showcase"
+    }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(InnerBlocks, {
+      template: [["uha-data/link-card"]],
+      allowedBlocks: ["uha-data/link-card"],
+      renderAppender: InnerBlocks.ButtonBlockAppender
+    }));
+  },
+  save: props => {
+    return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(InnerBlocks.Content, null);
+  }
 };
 
 /***/ }),
@@ -538,6 +694,7 @@ const LogoGalleryBlockArgs = {
   title: 'Logo gallery',
   icon: _icons__WEBPACK_IMPORTED_MODULE_1__.Stories,
   attributes: {},
+  category: 'urbanheat',
   edit: props => {
     return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
       className: "uha-admin uha-logo-gallery"
@@ -650,7 +807,8 @@ const ProfileBlockArgs = {
       },
       className: "uha-admin-button"
     }, "Clear picture")));
-  }
+  },
+  save: props => null
 };
 
 /***/ }),
@@ -677,12 +835,13 @@ const ProfileShowcaseBlockArgs = {
   title: 'Profile showcase',
   icon: _icons__WEBPACK_IMPORTED_MODULE_1__.People,
   attributes: {},
+  category: 'urbanheat',
   edit: props => {
     return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
       className: "uha-admin uha-profile-showcase"
     }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(InnerBlocks, {
-      template: [["urbanheat/profile"]],
-      allowedBlocks: ["urbanheat/profile"],
+      template: [["uha-data/profile"]],
+      allowedBlocks: ["uha-data/profile"],
       renderAppender: InnerBlocks.ButtonBlockAppender
     }));
   },
@@ -784,6 +943,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _profiles__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./profiles */ "./src/profiles.js");
 /* harmony import */ var _profile__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./profile */ "./src/profile.js");
 /* harmony import */ var _logo_gallery__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./logo-gallery */ "./src/logo-gallery.js");
+/* harmony import */ var _link_card__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./link-card */ "./src/link-card.js");
+/* harmony import */ var _link_cards__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./link-cards */ "./src/link-cards.js");
+
+
 
 
 
@@ -794,11 +957,13 @@ const {
   registerBlockType
 } = wp.blocks;
 registerBlockType("urbanheat/hero-block", _hero__WEBPACK_IMPORTED_MODULE_1__.HeroBlockArgs);
-registerBlockType("urbanheat/ext-news-data", _ext_news__WEBPACK_IMPORTED_MODULE_0__.ExternalNewsDataBlockArgs);
+registerBlockType("uha-data/ext-news-data", _ext_news__WEBPACK_IMPORTED_MODULE_0__.ExternalNewsDataBlockArgs);
 registerBlockType("urbanheat/ext-news-feed", _ext_news_feed__WEBPACK_IMPORTED_MODULE_2__.ExternalNewsFeedBlockArgs);
 registerBlockType("urbanheat/profile-showcase", _profiles__WEBPACK_IMPORTED_MODULE_3__.ProfileShowcaseBlockArgs);
-registerBlockType("urbanheat/profile", _profile__WEBPACK_IMPORTED_MODULE_4__.ProfileBlockArgs);
+registerBlockType("uha-data/profile", _profile__WEBPACK_IMPORTED_MODULE_4__.ProfileBlockArgs);
 registerBlockType("urbanheat/logo-gallery", _logo_gallery__WEBPACK_IMPORTED_MODULE_5__.LogoGalleryBlockArgs);
+registerBlockType("uha-data/link-card", _link_card__WEBPACK_IMPORTED_MODULE_6__.LinkCardBlockArgs);
+registerBlockType("urbanheat/link-cards", _link_cards__WEBPACK_IMPORTED_MODULE_7__.LinkCardsBlockArgs);
 }();
 /******/ })()
 ;

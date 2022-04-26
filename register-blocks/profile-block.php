@@ -1,7 +1,7 @@
 <?php
 
 class ProfileBlock {
-  const BLOCK_NAME = 'urbanheat/profile';
+  const BLOCK_NAME = 'uha-data/profile';
   const ATTRIBUTES = array(
     'name' => array(
       'type' => 'string',

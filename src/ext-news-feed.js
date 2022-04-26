@@ -6,7 +6,7 @@ const {
 export const ExternalNewsFeedBlockArgs = {
   title: 'Recent news',
   icon: 'testimonial',
-  category: 'media',
+  category: 'urbanheat',
   edit: (props) => {
 
     return (

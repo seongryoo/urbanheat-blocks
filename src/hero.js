@@ -98,6 +98,12 @@ export const HeroBlockArgs = {
           className="uha-admin__item"
           onChange={(value) => props.setAttributes({ isGradientBackground: value })}
         />
+        <CheckboxControl
+          label="Large hero banner"
+          checked={props.attributes.isVanguard}
+          className="uha-admin__item"
+          onChange={(value) => props.setAttributes({ isVanguard: value })}          
+        />
       </div>
     );
   },
@@ -105,6 +111,6 @@ export const HeroBlockArgs = {
     return <InnerBlocks.Content props={props}/>;
   },
   title: "Hero Block",
-  category: "design",
+  category: 'urbanheat',
   icon: Hero,
 };

@@ -1,25 +1,25 @@
 import {
-  People,
+  GridView,
 } from "./_icons";
 
 const {
   InnerBlocks,
 } = wp.blockEditor;
 
-export const ProfileShowcaseBlockArgs = {
-  title: 'Profile showcase',
-  icon: People,
-  attributes: {},
+export const LinkCardsBlockArgs = {
+  title: 'Link cards',
+  icon: GridView,
   category: 'urbanheat',
+  attributes: {},
   edit: (props) => {
     return (
       <div className="uha-admin uha-profile-showcase">
         <InnerBlocks 
           template={[
-            ["uha-data/profile"]
+            ["uha-data/link-card"]
           ]}
           allowedBlocks={[
-            "uha-data/profile"
+            "uha-data/link-card"
           ]}
           renderAppender={InnerBlocks.ButtonBlockAppender}
         />

@@ -1,7 +1,7 @@
 <?php
 
 class ExternalNewsDataBlock {
-  const BLOCK_NAME = 'urbanheat/ext-news-data';
+  const BLOCK_NAME = 'uha-data/ext-news-data';
   function actions__init() {
     add_action( 'init', function() {
       if ( ! function_exists( 'register_block_type' ) ) {

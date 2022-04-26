@@ -144,3 +144,8 @@
   align-items: center;
   margin-top: 1rem;
 }
+.editor-block-list-item-urbanheat-ext-news-data,
+.editor-block-list-item-urbanheat-link-card,
+.editor-block-list-item-urbanheat-profile {
+  opacity: 0.25;
+}

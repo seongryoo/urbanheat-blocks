@@ -14,6 +14,10 @@ class HeroBlock {
       'type' => 'boolean',
       'default' => TRUE,
     ),
+    'isVanguard' => array(
+      'type' => 'boolean',
+      'default' => FALSE,
+    ),
     'isVideo' => array(
       'type' => 'boolean',
       'default' => FALSE,
@@ -46,6 +50,7 @@ class HeroBlock {
     $is_call_to_action      = $attributes[ 'isCallToAction' ];
     $is_video               = $attributes[ 'isVideo' ];
     $is_graphic_left        = $attributes[ 'isGraphicLeft' ];
+    $is_vanguard            = $attributes[ 'isVanguard' ];
     $is_gradient_background = $attributes[ 'isGradientBackground' ];
     $graphic_iframe         = $content;
 
@@ -80,6 +85,9 @@ class HeroBlock {
     $classes = '';
     if ( $is_gradient_background ) {
       $classes .= ' hero--gradient-bg';
+    }
+    if ( $is_vanguard ) {
+      $classes .= ' hero--large';
     }
 
     return "<div class=\"hero{$classes}\">

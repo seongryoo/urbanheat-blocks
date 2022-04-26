@@ -106,4 +106,5 @@ export const ProfileBlockArgs = {
       </div>
     );
   },
+  save: (props) => null,
 };

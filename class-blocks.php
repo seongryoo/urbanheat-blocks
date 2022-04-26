@@ -6,6 +6,8 @@ include( plugin_dir_path( __FILE__ ) . 'register-blocks/ext-news-feed-block.php'
 include( plugin_dir_path( __FILE__ ) . 'register-blocks/profiles-block.php' );
 include( plugin_dir_path( __FILE__ ) . 'register-blocks/profile-block.php' );
 include( plugin_dir_path( __FILE__ ) . 'register-blocks/logo-gallery.php' );
+include( plugin_dir_path( __FILE__ ) . 'register-blocks/link-card-block.php' );
+include( plugin_dir_path( __FILE__ ) . 'register-blocks/link-cards-block.php' );
 
 
 
@@ -48,7 +50,18 @@ class UrbanHeatATL_Blocks {
     $this->action__editor_assets();
   }
   function filters__editor() {
-    
+    add_filter( 'block_categories_all', function( $block_categories, $block_editor_context ) {
+      return array_merge(
+        $block_categories,
+        [
+          [
+            'slug'  => 'urbanheat',
+            'title' => esc_html__( 'UrbanHeatATL Blocks', 'uha-blocks' ),
+            'icon'  => 'chart-line',
+          ],
+        ]
+      );
+    }, 10, 2 );
   }
   function __construct() {
     $this->actions__editor();
