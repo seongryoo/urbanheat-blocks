@@ -35,7 +35,9 @@ class LinkCardBlock {
       $markup .= '<a class="card__link" href="' . esc_url( $link_url ) . '">';
         $markup .= '<img src="' . esc_url( $img_url ) . '" alt="' . esc_attr( $img_alt ) . '" class="card__link__image">';
         $markup .= '<span class="card__link__text">' . esc_html( $title ) . '</span>';
-        $markup .= '<div class="card__link__description">' . $desc . '</div>';
+        if ( $desc && $desc != "" ) {
+          $markup .= '<div class="card__link__description">' . $desc . '</div>';
+        }
       $markup .= '</a>';
     $markup .= '</div>'; // .card
     return $markup;
